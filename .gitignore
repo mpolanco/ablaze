@@ -1,5 +1,5 @@
-AquaticEvolver/bin-debug/
+bin-debug/
 *.swp
 *~
 #*
-
+.DS_Store
