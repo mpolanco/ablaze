@@ -21,7 +21,7 @@ package
 			level.loadMap(FlxTilemap.arrayToCSV(data, 40), FlxTilemap.ImgAuto, 0, 0, FlxTilemap.AUTO);
 			add(level);
 			
-			//Create player (a red box)
+			//Create player (a  flixel man)
 			player = new FlxSprite(FlxG.width / 2 - 5);
 			
 			//LOADING GRAPHIC
