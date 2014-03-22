@@ -1,5 +1,7 @@
 
 package {	
+	import org.flixel.*;
+	
 	public class World {
 		public var player:Player;
 		public var screenX:int; // The x coordinate of the upper left corner of the screen.
@@ -31,6 +33,7 @@ package {
 			for (var i:int = 0; i < this.enemies.length; i++) {
 				this.enemies[i].update();
 			}
+			FlxG.camera.follow(this.player);
 		}
 		
 		public function display() {
