@@ -16,7 +16,6 @@ package Particles
 			this.loadGraphic(SmokeImg, false, false, 128, 128, false);
 			this.scale.x /= 4;
 			this.scale.y /= 4;
-//			makeGraphic(128,128,0xffffffff, false, null);
 			this.alpha = .5;
 			this.timer = 0;
 		}

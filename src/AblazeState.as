@@ -1,9 +1,15 @@
 package
 {
+	import flash.display.Sprite;
 	import org.flixel.*;
+	import Layer.FXLayer;
 	
 	public class AblazeState extends FlxState
 	{
+		private var _layerSprites:FlxGroup;
+		private var _layerFX:FXLayer;
+		private var _layerHUD:FlxGroup;
+		
 		public var level:FlxTilemap;
 		public var player:Player;
 		
@@ -36,6 +42,14 @@ package
 			add(player);
 			
 			add(player.smokeEmmitter);
+			
+			var fx:Sprite = player.fireSprite;			
+			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
+			
+			add(_layerSprites = new FlxGroup);
+			_layerFX = new FXLayer(fx);
+			add(_layerFX);
+			add(_layerHUD = new FlxGroup);
 			
 		}
 		
