@@ -26,7 +26,7 @@ package {
 			this.maxVelocity.y = 200;
 			this.acceleration.y = 200;
 			this.drag.x = this.maxVelocity.x * 4;
-			this.smokeEmmitter = new SmokeEmitter(this.x, this.y);
+			this.smokeEmmitter = new SmokeEmitter(this.x, this.y, 100);
 			FlxG.camera.follow(this);
 		}
 		
