@@ -7,8 +7,8 @@ package
 	{
 		public function Ablaze() 
 		{
-//			super(540,405,MenuState,2);
-			super(1080, 810, MenuState, 1);
+			super(540,405,MenuState,2);
+//			super(1080, 810, MenuState, 1);
 		}
 	}
 }

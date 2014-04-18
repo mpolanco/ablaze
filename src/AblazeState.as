@@ -45,17 +45,18 @@ package
 			drape = new Drape(0, 0);
 			
 			add(player);
-			add(player.smokeEmmitter);
+//			add(player.smokeEmmitter);
+			add(player.fireEmitter);
 			
 			add(drape);
 			
-			var fx:Sprite = player.fireSprite;			
-			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
-			
-			add(_layerSprites = new FlxGroup);
-			_layerFX = new FXLayer(fx);
-			add(_layerFX);
-			add(_layerHUD = new FlxGroup);
+//			var fx:Sprite = player.fireSprite;			
+//			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
+//			
+//			add(_layerSprites = new FlxGroup);
+//			_layerFX = new FXLayer(fx);
+//			add(_layerFX);
+//			add(_layerHUD = new FlxGroup);
 			
 		}
 		
