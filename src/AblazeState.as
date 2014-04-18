@@ -13,9 +13,9 @@ package
 		public var level:FlxTilemap;
 		public var player:Player;
 		
-		[Embed(source='res/jump.mp3')]
+//		[Embed(source='assets/art/jump.mp3')]
 		public static var Mp3Jump:Class;
-		[Embed(source='res/player.png')]
+//		[Embed(source='assets/art/player.png')]
 		public static var ImgPlayer:Class;
 		
 		override public function create():void

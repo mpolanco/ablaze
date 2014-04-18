@@ -7,7 +7,7 @@ package {
 	import ParticleEmitters.FireSprite;
 
 	public class Player extends FlxSprite{
-		[Embed(source='res/player.png')]
+		[Embed(source='assets/art/player.png')]
 		public static var ImgPlayer:Class;
 		
 		public var maxHealth:int;
