@@ -13,11 +13,18 @@ package Particles
 	import org.flintparticles.threeD.emitters.Emitter3D;
 	import org.flintparticles.threeD.initializers.Velocity;
 	import org.flintparticles.threeD.zones.ConeZone;
+	import org.flintparticles.threeD.actions.Accelerate;
 	
 	import flash.geom.Vector3D;
+	import org.flixel.FlxG;
 	
 	public class Smoke extends Emitter3D
 	{
+		var leftForce:Accelerate = new Accelerate( new Vector3D( 40, 0, 0 ) );
+		var rightForce:Accelerate = new Accelerate( new Vector3D( -40, 0, 0 ) );
+		var left:Boolean = false;
+		var right:Boolean = false;
+		
 		public function Smoke()
 		{
 			counter = new Steady( 10 );
@@ -32,6 +39,35 @@ package Particles
 			addAction( new ScaleImage( 1, 15 ) );
 			addAction( new Fade( 0.15, 0 ) );
 			addAction( new RandomDrift( 15, 15, 15 ) );
+		}
+		override public function update(time:Number):void
+		{
+			if (FlxG.keys.LEFT && !left) 
+			{
+				trace("LEft pressed");
+				left = true;
+				addAction( leftForce );
+			}
+			else if (FlxG.keys.RIGHT && !right)
+			{
+				trace("Right pressed");
+				right = true;
+				addAction( rightForce );
+			}
+			
+			if (!FlxG.keys.LEFT && left) 
+			{
+				trace("LEft released");
+				left = false;
+				removeAction( leftForce );
+			}
+			else if (!FlxG.keys.RIGHT && right)
+			{
+				trace("Right released");
+				right = false;
+				removeAction( rightForce );
+			}
+			super.update(time);
 		}
 	}
 }
