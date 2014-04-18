@@ -7,11 +7,9 @@ package {
 	import ParticleEmitters.FireSprite;
 
 	public class Player extends FlxSprite{
-		[Embed(source='res/player.png')]
+		[Embed(source='../assets/art/player.png')]
 		public static var ImgPlayer:Class;
-		
-		public var maxHealth:int;
-		public var phenotypes:Array;
+
 		public var smokeEmmitter:SmokeEmitter;
 		public var fireSprite:FireSprite;
 		
@@ -32,7 +30,6 @@ package {
 			FlxG.camera.follow(this);
 		}
 		
-		// This method is called often to update the state of the creature.
 		override public function update():void {
 			this.fireSprite.x = this.x;
 			this.fireSprite.y = this.y;
