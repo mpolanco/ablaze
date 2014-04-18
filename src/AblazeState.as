@@ -1,8 +1,10 @@
 package
 {
-	import flash.display.Sprite;
-	import org.flixel.*;
 	import Layer.FXLayer;
+	
+	import flash.display.Sprite;
+	
+	import org.flixel.*;
 	
 	public class AblazeState extends FlxState
 	{
@@ -12,10 +14,11 @@ package
 		
 		public var level:FlxTilemap;
 		public var player:Player;
+		public var drape:Drape;
 		
-//		[Embed(source='assets/art/jump.mp3')]
+		[Embed(source='assets/sounds/jump.mp3')]
 		public static var Mp3Jump:Class;
-//		[Embed(source='assets/art/player.png')]
+		[Embed(source='assets/art/player.png')]
 		public static var ImgPlayer:Class;
 		
 		override public function create():void
@@ -39,9 +42,12 @@ package
 			//Create player (a  flixel man)
 			player = new Player(14, 15);
 			
-			add(player);
+			drape = new Drape(0, 0);
 			
+			add(player);
 			add(player.smokeEmmitter);
+			
+			add(drape);
 			
 			var fx:Sprite = player.fireSprite;			
 			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
@@ -79,6 +85,11 @@ package
 			else //IN AIR
 			{
 				player.play("jump");
+			}
+			
+			if (FlxG.collide(player, drape)) 
+			{
+				trace("COLLIDING")
 			}
 			
 			super.update();
