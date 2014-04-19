@@ -12,6 +12,7 @@ package
 	import org.flixel.FlxParticle;
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
+	import State.AblazeState;
 	
 	public class MenuState extends AblazeState
 	{
@@ -30,12 +31,6 @@ package
 			super.create();
 			time = 0;
 			var menuText:FlxSprite = new FlxSprite(FlxG.width/2 - 250, 0, titleText);
-//			var menuText:FlxSprite = new FlxSprite(FlxG.width/2 - 250, 0, titleText);
-//			menuSprite= new OpenningLogo() ;
-//			myFlxSprite = new FlxSprite().makeGraphic(menuSprite.width,menuSprite.height);
-//			myBitmapData = myFlxSprite.pixels;
-//			myBitmapData.draw(menuSprite);
-//			add(myFlxSprite);
 			menuText.scrollFactor.x = menuText.scrollFactor.y = 0 ; 
 			add(menuText);
 			var playButton:FlxButton = new FlxButton(FlxG.width/2 - 65, 2*FlxG.height/7.0, "", startButtonCallback);

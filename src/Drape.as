@@ -1,5 +1,9 @@
 package
 {
+	import ParticleEmitters.FireEmitter;
+	
+	import State.AblazeState;
+	
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
 	
@@ -8,22 +12,33 @@ package
 		[Embed(source="assets/art/drape.png")]
 		public static var DrapeImg:Class;
 		
-		[Embed(source='assets/art/player.png')]
-		public static var ImgPlayer:Class;
+		private var onFire:Boolean;
+		public var fireEmitter:FireEmitter;
 		
 		public function Drape(X:Number=0, Y:Number=0, SimpleGraphic:Class=null)
 		{
-//			this.loadGraphic(DrapeImg, true,true, 2700, 2100);
-			this.loadGraphic(ImgPlayer, true, true, 14, 15);
-			this.scale.x /= 50;
-			this.scale.y /= 50;
+			this.loadGraphic(DrapeImg, true,true, 675/8, 525/8);
 			this.x = X;
 			this.y = Y;
+			this.maxVelocity.x = 0;
+			this.maxVelocity.y = 0;
+			this.acceleration.y = 0;
+			this.onFire = false;
+			this.fireEmitter = new FireEmitter(this.x, this.y, 100);
+//			this.fireEmitter.active = false;
 		}
 		override public function update():void
 		{
 			super.update();
-//			trace("here i am")
+			this.fireEmitter.x = this.x;
+			this.fireEmitter.y = this.y;
+			
+			if (FlxG.collide(this, AblazeState.state.player))
+			{
+				trace("player hit drape");
+				this.onFire = true;
+			}
+			this.fireEmitter.active = this.onFire;
 		}
 	}
 }
