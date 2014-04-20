@@ -1,24 +1,29 @@
 package ParticleEmitters
 {
+	import Area.Area;
+	import Area.AreaImpl;
+	import Area.DrapeArea;
+	
 	import Particles.FireParticle;
 	
 	import org.flixel.FlxEmitter;
 	import org.flixel.FlxG;
 	import org.flixel.FlxParticle;
 	
-	public class FireEmitter extends FlxEmitter
+	public class FireEmitter extends AreaEmitter
 	{
 		private var timer:Number;
 		private var size:Number;
 		
-		public function FireEmitter(X:Number=0, Y:Number=0, Size:Number=0)
+		public function FireEmitter(Area:AreaImpl, X:Number=0, Y:Number=0, Size:Number=0, Frequency=0.05)
 		{
-			super(X, Y, Size);
+			super(X, Y, Size, Area);
 			this.size = Size;
 			setXSpeed(-25,15);
 			setYSpeed(-10,-20);
 			this.gravity = -40;
 			this.particleClass = FireParticle;
+			this.frequency = Frequency;
 			for(var i:int = 0; i < Size; i++)
 			{
 				var particle:FlxParticle = new FireParticle();
@@ -26,14 +31,14 @@ package ParticleEmitters
 				add(particle);
 			}
 			this.timer = 0;
-			this.start(false, .1, 0.05, Size);
+			this.start(false, .1, this.frequency, Size);
 		}
 		
 		
 		override public function update():void {
 			super.update();
 			this.timer += FlxG.elapsed;
-			if (this.timer > 3 ){
+			if (this.timer > 1 ){
 				trace("resetting")
 				this.timer = 0;
 				for(var i:int = 0; i < this.size; i++)
@@ -42,7 +47,7 @@ package ParticleEmitters
 					particle.exists = false;
 					add(particle);
 				}
-				this.start(false, 0.1, 0.05, this.size);	
+				this.start(false, 0.1, this.frequency, this.size);	
 			}
 		}
 	}

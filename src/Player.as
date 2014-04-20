@@ -1,5 +1,7 @@
 
 package {	
+	import Area.PointArea;
+	
 	import ParticleEmitters.FireEmitter;
 	import ParticleEmitters.FireSprite;
 	import ParticleEmitters.SmokeEmitter;
@@ -31,7 +33,7 @@ package {
 			this.acceleration.y = 200;
 			this.drag.x = this.maxVelocity.x * 4;
 			this.smokeEmmitter = new SmokeEmitter(this.x, this.y, 100);
-			this.fireEmitter = new FireEmitter(this.x, this.y, 100);
+			this.fireEmitter = new FireEmitter(new PointArea(this.x,this.y), this.x, this.y, 100);
 			FlxG.camera.follow(this);
 		}
 		

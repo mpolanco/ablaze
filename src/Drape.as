@@ -1,5 +1,8 @@
 package
 {
+	import Area.PointArea;
+	import Area.DrapeArea;
+	
 	import ParticleEmitters.FireEmitter;
 	
 	import State.AblazeState;
@@ -24,7 +27,7 @@ package
 			this.maxVelocity.y = 0;
 			this.acceleration.y = 0;
 			this.onFire = false;
-			this.fireEmitter = new FireEmitter(this.x, this.y, 100);
+			this.fireEmitter = new FireEmitter(new DrapeArea(this.x,this.y), this.x, this.y, 100, 0.01);
 //			this.fireEmitter.active = false;
 		}
 		override public function update():void

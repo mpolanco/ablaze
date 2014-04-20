@@ -1,25 +1,23 @@
 package Area
 {
+	import org.flixel.FlxG;
 	import org.flixel.FlxPoint;
 	
-	public class Rectangle implements Area
+	public class Rectangle extends AreaImpl
 	{
-		public var x:Number;
-		public var y:Number;
 		public var width:Number;
 		public var height:Number;
 		
 		public function Rectangle(X:Number, Y:Number, Width:Number=0, Height:Number=0)
 		{
-			x=X;
-			y=Y;
+			super(X,Y);
 			width=Width;
 			height=Height;
 		}
 		
-		public function isInsideArea(x:Number,y:Number):Boolean
+		override public function isInsideArea(x:Number,y:Number):Boolean
 		{
-			isInside = true;
+			var isInside:Boolean = true;
 			
 			if (x < this.x) {
 				isInside = false;
@@ -37,9 +35,9 @@ package Area
 			return isInside;
 		}
 		
-		public function randomPointInsideArea():FlxPoint
+		override public function randomPointInsideArea():FlxPoint
 		{
-			point = new FlxPoint();
+			var point:FlxPoint = new FlxPoint();
 			point.x = this.x + FlxG.random()*(this.width);
 			point.y = this.y + FlxG.random()*(this.height);
 			

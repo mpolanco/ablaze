@@ -1,15 +1,18 @@
 package ParticleEmitters
 {
+	import Area.AreaImpl;
 	import Area.Area;
 	
 	import org.flixel.FlxEmitter;
 	import org.flixel.FlxPoint;
+	import org.flixel.FlxG;
+	import org.flixel.FlxParticle;
 	
 	public class AreaEmitter extends FlxEmitter
 	{
-		public var area:Area;
+		public var area:AreaImpl;
 		
-		public function AreaEmitter(X:Number=0, Y:Number=0, Size:Number=0, Area:Area)
+		public function AreaEmitter(X:Number=0, Y:Number=0, Size:Number=0, Area:AreaImpl=null)
 		{
 			super(X, Y, Size);
 			area = Area;
@@ -52,6 +55,8 @@ package ParticleEmitters
 		override public function update():void
 		{
 			super.update();
+			area.x = this.x-65;
+			area.y = this.y-62;
 		}
 	}
 }
