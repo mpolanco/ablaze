@@ -31,6 +31,7 @@ package {
 			this.maxVelocity.x = 80;
 			this.maxVelocity.y = 200;
 			this.acceleration.y = 200;
+			this.alpha = 0;
 			this.drag.x = this.maxVelocity.x * 4;
 			this.smokeEmmitter = new SmokeEmitter(this.x, this.y, 100);
 			this.fireEmitter = new FireEmitter(new PointArea(this.x,this.y), this.x, this.y, 100);
