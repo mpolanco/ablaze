@@ -19,7 +19,7 @@ package
 		}
 		
 		override public function create():void {
-			this.level = new BasicLevel();
+			this.level = new NutmegLevel();
 			this.add(level);
 			this.player = new Player(level);
 			this.add(player);

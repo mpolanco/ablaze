@@ -1,11 +1,9 @@
 package
 {
-	import Area.PointArea;
 	import Area.DrapeArea;
+	import Area.PointArea;
 	
 	import ParticleEmitters.FireEmitter;
-	
-	import State.AblazeState;
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
@@ -36,7 +34,7 @@ package
 			this.fireEmitter.x = this.x;
 			this.fireEmitter.y = this.y;
 			
-			if (FlxG.collide(this, AblazeState.state.player))
+			if (FlxG.collide(this, AblazeStage.stage.player))
 			{
 				trace("player hit drape");
 				this.onFire = true;
