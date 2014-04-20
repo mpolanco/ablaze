@@ -1,20 +1,15 @@
 package
-{
-	import flash.display.BitmapData;
-	import flash.display.Graphics;
+{	
+	import Scenes.PrototypeScene;
 	
-	import org.flintparticles.common.displayObjects.RadialDot;
-	import org.flintparticles.common.displayObjects.Star;
-	import org.flintparticles.common.initializers.ImageClass;
 	import org.flixel.FlxButton;
 	import org.flixel.FlxEmitter;
 	import org.flixel.FlxG;
-	import org.flixel.FlxParticle;
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
-	import State.AblazeState;
+	import org.flixel.FlxState;
 	
-	public class MenuState extends AblazeState
+	public class MenuState extends FlxState
 	{
 		[Embed (source = "../assets/art/Ablaze_Title.png")] public var titleText:Class;
 		[Embed(source='../assets/art/player.png')]
@@ -55,13 +50,16 @@ package
 			add(emitter);
 		}
 		public function startButtonCallback():void {
-			FlxG.switchState(new AblazeState);
+			var scene:AblazeScene = new PrototypeScene();
+			FlxG.switchState(new AblazeStage(scene));
 		}
 		public function creditButtonCallback():void {
-			FlxG.switchState(new AblazeState);
+			//FlxG.switchState(...);
+			trace("Credits button pressed");
 		}
 		public function instructionButtonCallback():void {
-			FlxG.switchState(new AblazeState);
+			//FlxG.switchState(...);
+			trace("Instruction button pressed");
 		}
 		
 	}
