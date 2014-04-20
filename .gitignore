@@ -1,9 +1,10 @@
 # IDE
 .project
 .settings
-bin-debug/
 .actionScriptProperties
 *.mxml
+bin-debug/
+html-template/
 
 # OSX & Unix
 *.swp
