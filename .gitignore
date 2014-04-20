@@ -1,5 +1,11 @@
+# IDE
+.project
+.settings
 bin-debug/
-#.actionScriptProperties
+.actionScriptProperties
+*.mxml
+
+# OSX & Unix
 *.swp
 *~
 #*
