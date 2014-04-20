@@ -5,10 +5,10 @@ package Particles
 	
 	public class SmokeParticle extends FlxParticle
 	{
-		[Embed(source='res/smoke.png')]
+		[Embed(source='../../assets/art/RadialDot.png')]
 		public static var SmokeImg:Class;
 		var duration:Number = 60*6;
-		private var timer:Number
+		private var timer:Number;
 		
 		public function SmokeParticle()
 		{

@@ -1,16 +1,20 @@
 
 package {	
+	import Area.PointArea;
+	
+	import ParticleEmitters.FireEmitter;
+	import ParticleEmitters.FireSprite;
 	import ParticleEmitters.SmokeEmitter;
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
-	import ParticleEmitters.FireSprite;
 
 	public class Player extends FlxSprite{
 		[Embed(source='../assets/art/player.png')]
 		public static var ImgPlayer:Class;
 
 		public var smokeEmmitter:SmokeEmitter;
+		public var fireEmitter:FireEmitter;
 		public var fireSprite:FireSprite;
 		
 		public function Player(x:int, y:int) {
@@ -25,14 +29,18 @@ package {
 			this.maxVelocity.x = 80;
 			this.maxVelocity.y = 200;
 			this.acceleration.y = 200;
+			this.alpha = 0;
 			this.drag.x = this.maxVelocity.x * 4;
-			this.fireSprite = new FireSprite(this.x, this.y);
+			this.smokeEmmitter = new SmokeEmitter(this.x, this.y, 100);
+			this.fireEmitter = new FireEmitter(new PointArea(this.x,this.y), this.x, this.y, 100);
 			FlxG.camera.follow(this);
 		}
 		
 		override public function update():void {
-			this.fireSprite.x = this.x;
-			this.fireSprite.y = this.y;
+			this.smokeEmmitter.x = this.x;
+			this.smokeEmmitter.y = this.y;
+			this.fireEmitter.x = this.x+7;
+			this.fireEmitter.y = this.y+7;
 		}
 	}
 }

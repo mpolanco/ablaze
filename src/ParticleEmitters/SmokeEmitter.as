@@ -5,6 +5,7 @@ package ParticleEmitters
 	import org.flixel.FlxEmitter;
 	import org.flixel.FlxG;
 	import org.flixel.FlxParticle;
+	import org.flixel.FlxPoint;
 	
 	public class SmokeEmitter extends FlxEmitter
 	{
@@ -15,10 +16,10 @@ package ParticleEmitters
 		{
 			super(X, Y, Size);
 			this.size = Size;
-			setXSpeed(-5,5);
+			setXSpeed(-30,30);
 			setYSpeed(-20,-30);
 			this.gravity = -20;
-//			this.lifespan = .1
+			this.particleDrag = new FlxPoint(15,0)
 			this.particleClass = SmokeParticle;
 			for(var i:int = 0; i < Size; i++)
 			{
@@ -29,13 +30,6 @@ package ParticleEmitters
 			this.timer = 0;
 			this.start(false, .1, 0.1, Size);
 		}
-//		override public function emitParticle():void {
-//			super.emitParticle();
-//			var particle:FlxParticle = new SmokeParticle();
-//			particle.exists = false;
-//			add(particle);
-//			trace("hello")
-//		}
 		
 		override public function update():void {
 			super.update();
