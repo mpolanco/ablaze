@@ -29,6 +29,7 @@ package ParticleEmitters
 			this.start(false, .1, 0.05, Size);
 		}
 		
+		
 		override public function update():void {
 			super.update();
 			this.timer += FlxG.elapsed;
