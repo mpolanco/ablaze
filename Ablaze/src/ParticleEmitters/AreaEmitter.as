@@ -55,8 +55,8 @@ package ParticleEmitters
 		override public function update():void
 		{
 			super.update();
-			area.x = this.x-65;
-			area.y = this.y-62;
+			area.x = this.x-64;
+			area.y = this.y-364;
 		}
 	}
 }

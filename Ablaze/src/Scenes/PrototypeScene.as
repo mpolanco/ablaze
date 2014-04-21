@@ -1,8 +1,9 @@
 package Scenes
 {
-	import org.flixel.FlxPoint;
+	import Theatre.Scene;
+	import Theatre.SetSchematic;
 
-	public class PrototypeScene extends AblazeScene
+	public class PrototypeScene extends Scene
 	{	
 		[Embed(source = "../../assets/scenes/prototype/mapCSV_Scene_Map.csv", mimeType = "application/octet-stream")]
 		private static var MapCSV:Class;
@@ -14,13 +15,15 @@ package Scenes
 		[Embed(source = "../../assets/art/background.png")]
 		private static var BackgroundTilesPNG:Class;
 		
+		//[Embed(source = "../../assets/scenes/prototype/mapCSV_Scene_Player.csv", mimeType = "application/octet-stream")] 
+		private static var PlayerCSV:Class;
+		[Embed(source = "../../assets/art/player.png")]
+		private static var PlayerPNG:Class;
+		
 		public function PrototypeScene()
 		{
-			super(MapCSV, MapTilesPNG, BackgroundCSV, BackgroundTilesPNG);
-		}
-		
-		override public function startLocation():FlxPoint {
-			return new FlxPoint(150, 120);
+			
+			super(new SetSchematic());
 		}
 	}
 }

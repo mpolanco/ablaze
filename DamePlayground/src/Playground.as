@@ -7,6 +7,7 @@ package
 	import org.flixel.FlxG;
 	import org.flixel.FlxRect;
 	import org.flixel.FlxState;
+	import Levels.TestLevel;
 	
 	public class Playground extends FlxState
 	{
@@ -19,7 +20,7 @@ package
 		}
 		
 		override public function create():void {
-			this.level = new NutmegLevel();
+			this.level = new TestLevel();
 			this.add(level);
 			this.player = new Player(level);
 			this.add(player);

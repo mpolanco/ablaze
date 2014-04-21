@@ -7,13 +7,14 @@ package Particles
 	{
 		[Embed(source='../../assets/art/RadialDot.png')]
 		public static var SmokeImg:Class;
-		var duration:Number = 60*6;
+		private var duration:Number = 60*6;
 		private var timer:Number;
 		
 		public function SmokeParticle()
 		{
 			super();
 			this.loadGraphic(SmokeImg, false, false, 128, 128, false);
+			//this.makeGraphic(64,64,0xffffffff,false);
 			this.scale.x /= 4;
 			this.scale.y /= 4;
 			this.alpha = .5;

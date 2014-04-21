@@ -13,11 +13,11 @@ package {
 	import org.flixel.plugin.photonstorm.FlxControlHandler;
 
 	//TODO: implement as FlxGroup
-	public class Player extends FlxSprite{
+	public class Player extends FlxSprite {
 		//[Embed(source='../assets/art/player.png')]
 		//public static var ImgPlayer:Class;
 
-		public var smokeEmmitter:SmokeEmitter;
+		public var smokeEmitter:SmokeEmitter;
 		public var fireEmitter:FireEmitter;
 		public var fireSprite:FireSprite;
 		
@@ -64,15 +64,15 @@ package {
 		}
 		
 		private function ignite():void {
-			this.smokeEmmitter = new SmokeEmitter(this.x, this.y, 100);
+			this.smokeEmitter = new SmokeEmitter(this.x, this.y, 100);
 			this.fireEmitter = new FireEmitter(new PointArea(this.x,this.y), this.x, this.y, 100);
 		}
 		
 		override public function update():void {
 			super.update();
 			
-			this.smokeEmmitter.x = this.x;
-			this.smokeEmmitter.y = this.y+5;
+			this.smokeEmitter.x = this.x;
+			this.smokeEmitter.y = this.y;
 			this.fireEmitter.x = this.x;
 			this.fireEmitter.y = this.y;
 			

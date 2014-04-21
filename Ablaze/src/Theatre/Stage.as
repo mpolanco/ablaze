@@ -1,19 +1,19 @@
-package
+package Theatre
 {		
 	import org.flixel.FlxCamera;
 	import org.flixel.FlxG;
 	import org.flixel.FlxRect;
 	import org.flixel.FlxState;
 	
-	public class AblazeStage extends FlxState
+	public class Stage extends FlxState
 	{
-		public static var stage:AblazeStage;
+		public static var stage:Stage;
 		
 		public var player:Player;
-		protected var scene:AblazeScene;
+		protected var scene:Scene;
 		public var drape:Drape;
 		
-		public function AblazeStage(scene:AblazeScene)
+		public function Stage(scene:Scene)
 		{
 			super();
 			this.scene = scene;
@@ -22,11 +22,11 @@ package
 		
 		override public function create():void {
 			this.add(this.scene);
-			this.player = new Player(this.scene.startLocation().x, this.scene.startLocation().y);
-			this.drape = new Drape(this.scene.startLocation().x+20, this.scene.startLocation().y);
+			//this.player = new Player(this.scene.startLocation().x, this.scene.startLocation().y);
+			//this.drape = new Drape(this.scene.startLocation().x+20, this.scene.startLocation().y);
 			
 			//TODO: once player is implemented as FlxGroup, adding player should add all its elements
-			this.add(this.player.smokeEmmitter);
+			this.add(this.player.smokeEmitter);
 			this.add(this.player.fireEmitter);
 			this.add(this.player);
 			

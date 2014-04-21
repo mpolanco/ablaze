@@ -8,6 +8,8 @@ package
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
+	import Theatre.Scene;
+	import Theatre.Stage;
 	
 	public class MenuState extends FlxState
 	{
@@ -50,8 +52,8 @@ package
 			add(emitter);
 		}
 		public function startButtonCallback():void {
-			var scene:AblazeScene = new PrototypeScene();
-			FlxG.switchState(new AblazeStage(scene));
+			var scene:Scene = new PrototypeScene();
+			FlxG.switchState(new Stage(scene));
 		}
 		public function creditButtonCallback():void {
 			//FlxG.switchState(...);

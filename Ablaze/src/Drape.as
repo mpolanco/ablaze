@@ -7,6 +7,7 @@ package
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
+	import Theatre.Stage;
 	
 	public class Drape extends FlxSprite
 	{
@@ -34,7 +35,7 @@ package
 			this.fireEmitter.x = this.x;
 			this.fireEmitter.y = this.y;
 			
-			if (FlxG.collide(this, AblazeStage.stage.player))
+			if (FlxG.collide(this, Stage.stage.player))
 			{
 				trace("player hit drape");
 				this.onFire = true;
