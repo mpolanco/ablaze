@@ -22,7 +22,7 @@ package Scenes
 		
 		public function PrototypeScene()
 		{
-			
+			//TODO: implement this
 			super(new SetSchematic());
 		}
 	}

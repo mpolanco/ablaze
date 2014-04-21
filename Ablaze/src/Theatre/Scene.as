@@ -4,15 +4,12 @@ package Theatre
 	import org.flixel.FlxObject;
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxTilemap;
-	
+
 	public class Scene extends FlxGroup
 	{	
 		protected var background:FlxTilemap;
 		protected var map:FlxTilemap;
 		public var player:Player;
-		
-		[Embed(source = "../../assets/art/player.png")]
-		private static var PlayerPNG:Class;
 		
 		public function Scene(setSchematic:SetSchematic)
 		{
@@ -23,8 +20,11 @@ package Theatre
 			this.addElements();
 		}
 		
+		//TODO: factory??
+		
 		// Public methods
 		
+		//TODO: remove this once player location is loaded from csv
 		public function startLocation():FlxPoint {
 			return new FlxPoint(0,0);
 		}
@@ -39,20 +39,20 @@ package Theatre
 		
 		// Private methods
 		
-		private function initBackground(background:SetPiece):void {
+		private function initBackground(background:SetPieceSchematic):void {
 			this.background = new FlxTilemap;
 			this.background.loadMap(new background.tilemapCSV, background.tilesPNG, background.tileWidth, background.tileHeight);
 			this.background.setTileProperties(1, FlxObject.NONE);
 			this.background.scrollFactor.x = 0.9; // parallax
 		}
 		
-		private function initMap(map:SetPiece):void {
+		private function initMap(map:SetPieceSchematic):void {
 			this.map = new FlxTilemap;
 			this.map.loadMap(new map.tilemapCSV, map.tilesPNG, map.tileWidth, map.tileHeight, 0, 0, 1, map.collideIndex);
 			this.map.setTileProperties(40, FlxObject.UP, null, null, 4);
 		}
 		
-		private function initPlayer(player:SetPiece):void {
+		private function initPlayer(player:SetPieceSchematic):void {
 			var playerMap:FlxTilemap = new FlxTilemap;
 			playerMap.loadMap(new player.tilemapCSV, player.tilesPNG, player.tileWidth, player.tileHeight);
 			for (var ty:int = 0; ty < playerMap.heightInTiles; ty++)

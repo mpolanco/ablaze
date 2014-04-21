@@ -2,25 +2,25 @@ package Theatre
 {
 	public class SetSchematic
 	{
-		private var _playerSchematic:SetPiece;
-		private var _mapSchematic:SetPiece;
-		private var _backgroundSchematic:SetPiece;
+		private var _playerSchematic:SetPieceSchematic;
+		private var _mapSchematic:SetPieceSchematic;
+		private var _backgroundSchematic:SetPieceSchematic;
 		
 		public function SetSchematic()
 		{
 		}
 
-		public function get playerSchematic():SetPiece
+		public function get playerSchematic():SetPieceSchematic
 		{
 			return _playerSchematic;
 		}
 
-		public function get mapSchematic():SetPiece
+		public function get mapSchematic():SetPieceSchematic
 		{
 			return _mapSchematic;
 		}
 
-		public function get backgroundSchematic():SetPiece
+		public function get backgroundSchematic():SetPieceSchematic
 		{
 			return _backgroundSchematic;
 		}

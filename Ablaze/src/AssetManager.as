@@ -3,11 +3,13 @@ package
 	import flash.errors.IllegalOperationError;
 
 	/**
-	 * Class acts as singleton
+	 * Class acts as singleton.
 	 * 
 	 * Asset naming convention :
 	 * 		filename		:: camelCase.extension (e.g. helloWorld.txt)
 	 * 		attribute name	:: filenameEXTENSTION (e.g. hello.txt -> helloTXT)
+	 * 
+	 * NB: Static attribute names start with lower case as they are emulating a singleton's instance attributes.
 	 */
 	public class AssetManager
 	{

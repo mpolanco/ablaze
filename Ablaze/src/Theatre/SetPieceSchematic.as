@@ -1,6 +1,6 @@
 package Theatre
 {
-	public class SetPiece
+	public class SetPieceSchematic
 	{
 		private var _tilemapCSV:Class;
 		private var _tilesPNG:Class;
@@ -11,7 +11,7 @@ package Theatre
 		/**
 		 * Struct for passing tilemap info
 		 */
-		public function SetPiece(tilemapCSV:Class, tilesPNG, tileWidth:Number, tileHeight:Number, collideIndex:Number=1)
+		public function SetPieceSchematic(tilemapCSV:Class, tilesPNG, tileWidth:Number, tileHeight:Number, collideIndex:Number=1)
 		{
 			this._tilemapCSV = tilemapCSV;
 			this._tilesPNG = tilesPNG;
