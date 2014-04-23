@@ -21,7 +21,7 @@ package {
 		public var fireEmitter:FireEmitter;
 		public var fireSprite:FireSprite;
 		
-		//[Embed(source = '../assets/art/nutmeg.png')] private static var NutmegPNG:Class;
+		[Embed(source = '../assets/art/ember_eyes.png')] private static var EyesPNG:Class;
 		
 		public function Player(x:int, y:int) {
 			super(x, y);
@@ -32,20 +32,24 @@ package {
 		}
 		
 		private function setupGraphic():void {
-			//this.loadGraphic(NutmegPNG, true, true, 16, 18, true);
-			this.alpha = 0;
+			this.loadGraphic(EyesPNG, true, true, 19, 26, true);
+			this.alpha = 1;
 			
 			// collision box
 			this.width = 12;
 			this.height = 16;
 			
 			// image offset from collision box
-			this.offset.x = 2;
-			this.offset.y = 2;
+			this.offset.x = 13;
+			this.offset.y = 20;
 		}
 		
 		private function addAnimations():void {
-			//TODO: implement this
+			this.addAnimation( 'idle', [0,1,2,3], 10, true);
+			this.addAnimation( 'sad', [4,5,6,7], 10, true);
+			this.addAnimation( 'happy', [8,9,10,11], 10, true);
+			this.addAnimation( 'blink', [12,13,14,15,16], 10, true);
+			this.addAnimation( 'pumpin', [17,18,19,20,21,22,23,24,25], 10, true);
 		}
 		
 		private function setupControl():void {
