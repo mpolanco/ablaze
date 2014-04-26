@@ -11,7 +11,7 @@ package
 	 * 
 	 * NB: Static attribute names start with lower case as they are emulating a singleton's instance attributes.
 	 */
-	public class AssetManager
+	public class Assets
 	{
 		// .png assets
 		[Embed(source = "../assets/art/background.png")] 	public static const  backgroundPNG:Class;
@@ -38,7 +38,7 @@ package
 		/**
 		 * @throws IllegalOperationError Enforces singleton policy
 		 */
-		public function AssetManager()
+		public function Assets()
 		{
 			throw new IllegalOperationError("Cannot instantiate more than one AssetManager singleton");
 		}

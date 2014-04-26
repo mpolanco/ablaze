@@ -8,14 +8,12 @@ package
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
-	import Theatre.Scene;
+	import Cinematic.Scene;
 	import Theatre.Stage;
+	import Scenes.Prototype;
 	
 	public class MenuState extends FlxState
 	{
-		[Embed (source = "../assets/art/Ablaze_Title.png")] public var titleText:Class;
-		[Embed(source='../assets/art/player.png')]
-		public static var ImgPlayer:Class;
 		public var buttonOffset:FlxPoint = new FlxPoint(10,10);
 //		public var menuSprite:OpenningLogo;
 //		public var myFlxSprite:FlxSprite;
@@ -47,13 +45,12 @@ package
 			
 			emitter.start(false, 0, 0.1, 0);
 			emitter.on = true;
-			emitter.particleClass = ImgPlayer;
+			emitter.particleClass = Assets.playerPNG;
 			trace(emitter.countLiving());
 			add(emitter);
 		}
 		public function startButtonCallback():void {
-			var scene:Scene = new PrototypeScene();
-			FlxG.switchState(new Stage(scene));
+			FlxG.switchState(new Prototype());
 		}
 		public function creditButtonCallback():void {
 			//FlxG.switchState(...);

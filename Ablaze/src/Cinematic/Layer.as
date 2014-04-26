@@ -1,6 +1,8 @@
-package Theatre
+package Cinematic
 {
-	public class SetPieceSchematic
+	import org.flixel.FlxTilemap;
+
+	public class Layer
 	{
 		private var _tilemapCSV:Class;
 		private var _tilesPNG:Class;
@@ -11,13 +13,18 @@ package Theatre
 		/**
 		 * Struct for passing tilemap info
 		 */
-		public function SetPieceSchematic(tilemapCSV:Class, tilesPNG, tileWidth:Number, tileHeight:Number, collideIndex:Number=1)
+		public function Layer(tilemapCSV:Class, tilesPNG, tileWidth:Number, tileHeight:Number, collideIndex:Number=1)
 		{
 			this._tilemapCSV = tilemapCSV;
 			this._tilesPNG = tilesPNG;
 			this._tileWidth = tileWidth;
 			this._tileHeight = tileHeight;
 			this._collideIndex = collideIndex;
+		}
+		
+		public function tilemap():FlxTilemap {
+			var flxTm:FlxTilemap =  new FlxTilemap;
+			return flxTm.loadMap(new this.tilemapCSV, new this.tilesPNG, this.tileWidth, this.tileHeight, 0, 0, 1, this.collideIndex);
 		}
 
 		public function get tilemapCSV():Class
