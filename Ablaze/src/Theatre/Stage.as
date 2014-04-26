@@ -5,6 +5,7 @@ package Theatre
 	import org.flixel.FlxRect;
 	import org.flixel.FlxState;
 	
+	//TODO: should Stage really be Scene, and Scene really be SceneSchematic?
 	public class Stage extends FlxState
 	{
 		public static var stage:Stage;
