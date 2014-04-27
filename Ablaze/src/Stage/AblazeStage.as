@@ -11,7 +11,7 @@ package Stage
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
 	
-	import org.flintparticles.twoD.renderers.BitmapRenderer;
+	import org.flintparticles.twoD.renderers.PixelRenderer;
 	import org.flixel.FlxCamera;
 	import org.flixel.FlxG;
 	import org.flixel.FlxRect;
@@ -21,7 +21,7 @@ package Stage
 	{
 		public static var stage:AblazeStage;
 		
-		private var _flintFXrenderer:BitmapRenderer;
+		private var _flintFXrenderer:PixelRenderer;
 		public var player:Player;
 		protected var scene:AblazeScene;
 		public var drape:Drape;
@@ -50,10 +50,10 @@ package Stage
 			
 			this.add(testText);
 			
-			_flintFXrenderer = new BitmapRenderer( new Rectangle( 0, 0, 640, 480 ) );
+			_flintFXrenderer = new PixelRenderer( new Rectangle( 0, 0, 640, 480 ) );
 			var fx:Sprite = new RainEmitter();		
-			_flintFXrenderer.addChild(fx);	//We have to add it or Flash won't render it at all
-//			fx.addChild( _flintFXrenderer );	
+			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
+			fx.addChild( _flintFXrenderer );	
 			
 			var rainLayer:FXLayer = new FXLayer(fx);
 			this.add(rainLayer);

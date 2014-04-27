@@ -6,13 +6,11 @@ package ParticleEmitters
 	import flash.geom.Rectangle;
 	import flash.geom.Vector3D;
 	
-	import org.flintparticles.threeD.emitters.Emitter3D;
-	import org.flintparticles.threeD.renderers.PixelRenderer;
-	import org.flintparticles.threeD.renderers.controllers.OrbitCamera;
+	import org.flintparticles.twoD.emitters.Emitter2D;
+	import org.flintparticles.twoD.renderers.PixelRenderer;
 
 	public class RainEmitter extends Sprite
 	{
-		private var orbitter:OrbitCamera;
 		private var rain:Rain;
 		
 		public function RainEmitter()
