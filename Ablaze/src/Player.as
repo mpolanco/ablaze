@@ -45,11 +45,12 @@ package {
 		}
 		
 		private function addAnimations():void {
-			this.addAnimation( 'idle', [0,1,2,3], 10, true);
-			this.addAnimation( 'sad', [4,5,6,7], 10, true);
-			this.addAnimation( 'happy', [8,9,10,11], 10, true);
-			this.addAnimation( 'blink', [12,13,14,15,16], 10, true);
-			this.addAnimation( 'pumpin', [17,18,19,20,21,22,23,24,25], 10, true);
+			this.addAnimation( 'idle', [0,1,2,3], 10, false);
+			this.addAnimation( 'sad', [4,5,6,7], 10, false);
+			this.addAnimation( 'happy', [8,9,10,11], 10, false);
+			this.addAnimation( 'blink', [12,13,14,15,16], 10, false);
+			this.addAnimation( 'pumpin', [17,18,19,20,21,22,23,24,25], 10, false);
+			play("idle");
 		}
 		
 		private function setupControl():void {
@@ -75,32 +76,44 @@ package {
 		override public function update():void {
 			super.update();
 			
-			this.smokeEmmitter.x = this.x;
-			this.smokeEmmitter.y = this.y+5;
-			this.fireEmitter.x = this.x;
-			this.fireEmitter.y = this.y;
+			updateEmitters();
+			
+			animateExpression();
+			
 			
 			if (x < 0)
 			{
 				x = 0;
 			}
 			//TODO: prevent player from exiting the level to the right
-			
-			if (touching == FlxObject.FLOOR)
-			{
-				if (velocity.x != 0)
-				{
-					play("walk");
+		}
+		
+		private function updateEmitters():void {
+			this.smokeEmmitter.x = this.x;
+			this.smokeEmmitter.y = this.y+5;
+			this.fireEmitter.x = this.x;
+			this.fireEmitter.y = this.y;
+		}
+		
+		private function animateExpression():void {
+			if (this.finished) {
+				var emotion:String = determineEmotion();
+				if (emotion != "") {
+					// TODO: use emotions
 				}
-				else
-				{
-					play("idle");
+				else {
+					// make the player blink every one in a while
+					if (Math.random() < 0.1) {
+						play("blink");
+					} else {
+						play("idle");
+					}	
 				}
 			}
-			else if (velocity.y < 0)
-			{
-				play("jump");
-			}
+		}
+		
+		public function determineEmotion():String {
+			return "";
 		}
 	}
 }

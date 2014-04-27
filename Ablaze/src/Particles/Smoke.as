@@ -20,10 +20,10 @@ package Particles
 	
 	public class Smoke extends Emitter3D
 	{
-		var leftForce:Accelerate = new Accelerate( new Vector3D( 40, 0, 0 ) );
-		var rightForce:Accelerate = new Accelerate( new Vector3D( -40, 0, 0 ) );
-		var left:Boolean = false;
-		var right:Boolean = false;
+		private var leftForce:Accelerate = new Accelerate( new Vector3D( 40, 0, 0 ) );
+		private var rightForce:Accelerate = new Accelerate( new Vector3D( -40, 0, 0 ) );
+		private var left:Boolean = false;
+		private var right:Boolean = false;
 		
 		public function Smoke()
 		{

@@ -7,6 +7,7 @@ package
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxSprite;
+	import Stage.AblazeStage;
 	
 	public class Drape extends FlxSprite
 	{

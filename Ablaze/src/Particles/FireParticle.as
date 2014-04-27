@@ -9,12 +9,12 @@ package Particles
 	{
 		[Embed(source='../../assets/art/RadialDot.png')]
 		public static var FireImg:Class;
-		var duration:Number = 60*3;
+		private var duration:Number = 60*3;
 		private var timer:Number
 		private var _startColor:uint = 0xFFFFCC00;
 		private var _endColor:uint = 0x00CC0000;
-		private var _startScale = 1/4;
-		private var _endScale = 1/8;
+		private var _startScale:Number = 1/4;
+		private var _endScale:Number = 1/8;
 		private var _energy:Number = 1;
 		
 		public function FireParticle()

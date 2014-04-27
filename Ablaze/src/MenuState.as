@@ -8,6 +8,7 @@ package
 	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxState;
+	import Stage.AblazeStage;
 	
 	public class MenuState extends FlxState
 	{

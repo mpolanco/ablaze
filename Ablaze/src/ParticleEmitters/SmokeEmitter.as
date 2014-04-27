@@ -35,7 +35,6 @@ package ParticleEmitters
 			super.update();
 			this.timer += FlxG.elapsed;
 			if (this.timer > 5 ){
-				trace("resetting")
 				this.timer = 0;
 				for(var i:int = 0; i < this.size; i++)
 				{

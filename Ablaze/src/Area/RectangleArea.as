@@ -3,14 +3,20 @@ package Area
 	import org.flixel.FlxG;
 	import org.flixel.FlxPoint;
 	
-	public class Rectangle extends AreaImpl
+	public class RectangleArea extends AreaImpl
 	{
 		public var width:Number;
 		public var height:Number;
+		public var centered:Boolean;
 		
-		public function Rectangle(X:Number, Y:Number, Width:Number=0, Height:Number=0)
+		public function RectangleArea(X:Number, Y:Number, Width:Number=0, Height:Number=0, Centered:Boolean=false)
 		{
-			super(X,Y);
+			if (Centered) {
+				X = X - Width/2.0;
+				Y = Y- Height/2.0;
+			}
+			super(X,Y);	
+			this.centered = Centered;
 			width=Width;
 			height=Height;
 		}

@@ -2,7 +2,7 @@ package Area
 {
 	import org.flixel.FlxPoint;
 	
-	public class AreaImpl implements Area
+	public class AreaImpl implements Area, Updateable
 	{
 		public var x:Number;
 		public var y:Number;
@@ -21,6 +21,10 @@ package Area
 		public function randomPointInsideArea():FlxPoint
 		{
 			return null;
+		}
+		
+		public function update():void{
+			
 		}
 	}
 }

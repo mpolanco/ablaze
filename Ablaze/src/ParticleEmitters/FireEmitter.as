@@ -15,7 +15,7 @@ package ParticleEmitters
 		private var timer:Number;
 		private var size:Number;
 		
-		public function FireEmitter(Area:AreaImpl, X:Number=0, Y:Number=0, Size:Number=0, Frequency=0.05)
+		public function FireEmitter(Area:AreaImpl, X:Number=0, Y:Number=0, Size:Number=0, Frequency:Number=0.05)
 		{
 			super(X, Y, Size, Area);
 			this.size = Size;
@@ -39,7 +39,6 @@ package ParticleEmitters
 			super.update();
 			this.timer += FlxG.elapsed;
 			if (this.timer > 1 ){
-				trace("resetting")
 				this.timer = 0;
 				for(var i:int = 0; i < this.size; i++)
 				{
