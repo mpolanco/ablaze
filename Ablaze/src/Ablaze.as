@@ -1,6 +1,6 @@
 package  
 {
-	import org.flixel.*;
+	import org.flixel.FlxGame;
 	[SWF(width="1080", height="810", backgroundColor="#000000")]
 	
 	public class Ablaze extends FlxGame

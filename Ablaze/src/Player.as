@@ -43,7 +43,7 @@ package {
 		}
 		
 		public function addGraphics(group:FlxGroup):void {
-			//group.add(this.smokeEmitter);
+			group.add(this.smokeEmitter);
 			group.add(this.fireEmitter);
 			group.add(this.eyes);
 		}
@@ -80,8 +80,8 @@ package {
 		
 		override public function update():void {
 			super.update();
-
-			
+			this.updateEyes();
+			this.updateEmitters();
 			animateExpression();
 			
 			
