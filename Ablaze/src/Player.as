@@ -5,13 +5,14 @@ package {
 	import ParticleEmitters.FireEmitter;
 	import ParticleEmitters.SmokeEmitter;
 	
-	import org.flixel.*;
-	import org.flixel.plugin.photonstorm.*;
+	import org.flixel.FlxG;
+	import org.flixel.FlxGroup;
+	import org.flixel.FlxObject;
+	import org.flixel.FlxSprite;
+	import org.flixel.plugin.photonstorm.FlxControl;
+	import org.flixel.plugin.photonstorm.FlxControlHandler;
 
-	//TODO: implement as FlxGroup
 	public class Player extends FlxSprite {
-		//[Embed(source='../assets/art/player.png')]
-		//public static var ImgPlayer:Class;
 
 		public var eyes:FlxSprite;
 		public var smokeEmitter:SmokeEmitter;
@@ -49,6 +50,7 @@ package {
 		}
 		
 		private function addAnimations():void {
+			//TODO: this.finished is always false for looped animations... change animations to be played once (depending on animation)
 			this.eyes.addAnimation( 'idle', [0,1,2,3], 10, true);
 			this.eyes.addAnimation( 'sad', [4,5,6,7], 10, true);
 			this.eyes.addAnimation( 'happy', [8,9,10,11], 10, true);
@@ -59,7 +61,6 @@ package {
 		}
 		
 		private function setupControl():void {
-			//TODO: should we just use built-in flixel functionality??
 			if (FlxG.getPlugin(FlxControl) == null)
 			{
 				FlxG.addPlugin(new FlxControl);
@@ -84,12 +85,11 @@ package {
 			this.updateEmitters();
 			animateExpression();
 			
-			
-			if (x < 0)
-			{
+			if (x < 0){ // keep player from falling off left side of map
 				x = 0;
+			}else if (x > 480- this.width) { // keep player from falling off right side of map
+				x = 480-this.width;
 			}
-			//TODO: prevent player from exiting the level to the right
 		}
 		
 		private function updateEyes():void {
@@ -106,6 +106,7 @@ package {
 		}
 		
 		private function animateExpression():void {
+			//TODO: this.finished is always false since all animations have looping set to true
 			if (this.finished) {
 				var emotion:String = determineEmotion();
 				if (emotion != "") {
@@ -114,9 +115,9 @@ package {
 				else {
 					// make the player blink every one in a while
 					if (Math.random() < 0.1) {
-						play("blink");
+						this.eyes.play("blink");
 					} else {
-						play("idle");
+						this.eyes.play("idle");
 					}	
 				}
 			}

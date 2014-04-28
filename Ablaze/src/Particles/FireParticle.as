@@ -20,7 +20,6 @@ package Particles
 		
 		public function FireParticle()
 		{
-			trace("constructing fire particles");
 			super();
 			this.loadGraphic(FireImg, false, false, 128, 128, false);
 			//this.makeGraphic(64, 64,0xffffffff, false);

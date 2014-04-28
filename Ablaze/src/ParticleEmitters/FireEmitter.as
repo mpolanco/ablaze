@@ -14,7 +14,6 @@ package ParticleEmitters
 		
 		public function FireEmitter(Area:AreaImpl, X:Number=0, Y:Number=0, Size:Number=0, Frequency:Number=0.05)
 		{
-			trace("Constructing fire emitter");
 			super(X, Y, Size, Area);
 			this.size = Size;
 			setXSpeed(-25,15);

@@ -1,7 +1,8 @@
 package
 {		
-	import org.flixel.*;
 	import Levels.*;
+	
+	import org.flixel.*;
 
 	
 	public class MenuState extends FlxState
@@ -20,14 +21,21 @@ package
 			var menuText:FlxSprite = new FlxSprite(FlxG.width/2 - 250, 0, Assets.titlePNG);
 			menuText.scrollFactor.x = menuText.scrollFactor.y = 0 ; 
 			add(menuText);
-			var playButton:FlxButton = new FlxButton(FlxG.width/2 - 65, 2*FlxG.height/7.0, "", startButtonCallback);
+			var playButton:FlxButton = new FlxButton(FlxG.width/2 - 120, 2*FlxG.height/7.0, "", playButtonCallback);
+			playButton.label = new FlxText(playButton.x, playButton.y,50, "play");
 			playButton.scrollFactor.x = playButton.scrollFactor.y = 0 ;
 			add(playButton);
-			var instructionButton:FlxButton = new FlxButton(FlxG.width/2 -120, 3*FlxG.height/7.0, "", instructionButtonCallback);
+			var testButton:FlxButton = new FlxButton(FlxG.width/2 - 120, 3*FlxG.height/7.0, "", testButtonCallback);
+			testButton.label = new FlxText(testButton.x, testButton.y,50, "test");
+			testButton.scrollFactor.x = testButton.scrollFactor.y = 0 ;
+			add(testButton);
+			var instructionButton:FlxButton = new FlxButton(FlxG.width/2 -120, 4*FlxG.height/7.0, "", instructionButtonCallback);
 			instructionButton.scrollFactor.x = instructionButton.scrollFactor.y = 0 ; 
+			instructionButton.label = new FlxText(instructionButton.x, instructionButton.y,50, "instructions");
 			add(instructionButton);
-			var creditButton:FlxButton = new FlxButton(FlxG.width/2 - 125, 4*FlxG.height/7.0, "", creditButtonCallback);
+			var creditButton:FlxButton = new FlxButton(FlxG.width/2 - 120, 5*FlxG.height/7.0, "", creditButtonCallback);
 			creditButton.scrollFactor.x = creditButton.scrollFactor.y = 0 ; 
+			creditButton.label = new FlxText(creditButton.x, creditButton.y,50, "credits");			
 			add(creditButton);
 			FlxG.mouse.show();
 			
@@ -41,8 +49,12 @@ package
 			trace(emitter.countLiving());
 			add(emitter);
 		}
-		public function startButtonCallback():void {
+		public function playButtonCallback():void {
 			FlxG.switchState(new PlayState(BasicLevel));
+		}
+		
+		public function testButtonCallback():void {
+			FlxG.switchState(new PlayState(TestLevel));
 		}
 		public function creditButtonCallback():void {
 			//FlxG.switchState(...);
