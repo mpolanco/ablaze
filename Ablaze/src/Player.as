@@ -3,53 +3,57 @@ package {
 	import Area.PointArea;
 	
 	import ParticleEmitters.FireEmitter;
-	import ParticleEmitters.FireSprite;
 	import ParticleEmitters.SmokeEmitter;
 	
-	import org.flixel.FlxG;
-	import org.flixel.FlxObject;
-	import org.flixel.FlxSprite;
-	import org.flixel.plugin.photonstorm.FlxControl;
-	import org.flixel.plugin.photonstorm.FlxControlHandler;
+	import org.flixel.*;
+	import org.flixel.plugin.photonstorm.*;
 
 	//TODO: implement as FlxGroup
 	public class Player extends FlxSprite {
 		//[Embed(source='../assets/art/player.png')]
 		//public static var ImgPlayer:Class;
 
+		public var eyes:FlxSprite;
 		public var smokeEmitter:SmokeEmitter;
 		public var fireEmitter:FireEmitter;
-		public var fireSprite:FireSprite;
 		
 		[Embed(source = '../assets/art/ember_eyes.png')] private static var EyesPNG:Class;
 		
 		public function Player(x:int, y:int) {
 			super(x, y);
-			this.setupGraphic();
+			this.setupGraphics();
 			this.addAnimations();
 			this.ignite();
 			this.setupControl();
 		}
-		
-		private function setupGraphic():void {
-			this.loadGraphic(EyesPNG, true, true, 19, 26, true);
-			this.alpha = 1;
+				
+		private function setupGraphics():void {
+			this.makeGraphic(19,26, 0x00ffffff, true);
+			this.alpha = 0;
+			this.eyes = new FlxSprite();
+			this.eyes.loadGraphic(EyesPNG, true, true, 19, 26, true);
 			
 			// collision box
-			this.width = 12;
-			this.height = 16;
+			//this.width = 12;
+			//this.height = 16;
 			
 			// image offset from collision box
-			this.offset.x = 13;
-			this.offset.y = 20;
+			//this.offset.x = 13;
+			//this.offset.y = 20;			
+		}
+		
+		public function addGraphics(group:FlxGroup):void {
+			//group.add(this.smokeEmitter);
+			group.add(this.fireEmitter);
+			group.add(this.eyes);
 		}
 		
 		private function addAnimations():void {
-			this.addAnimation( 'idle', [0,1,2,3], 10, true);
-			this.addAnimation( 'sad', [4,5,6,7], 10, true);
-			this.addAnimation( 'happy', [8,9,10,11], 10, true);
-			this.addAnimation( 'blink', [12,13,14,15,16], 10, true);
-			this.addAnimation( 'pumpin', [17,18,19,20,21,22,23,24,25], 10, true);
+			this.eyes.addAnimation( 'idle', [0,1,2,3], 10, true);
+			this.eyes.addAnimation( 'sad', [4,5,6,7], 10, true);
+			this.eyes.addAnimation( 'happy', [8,9,10,11], 10, true);
+			this.eyes.addAnimation( 'blink', [12,13,14,15,16], 10, true);
+			this.eyes.addAnimation( 'pumpin', [17,18,19,20,21,22,23,24,25], 10, true);
 		}
 		
 		private function setupControl():void {
@@ -75,10 +79,13 @@ package {
 		override public function update():void {
 			super.update();
 			
-			this.smokeEmitter.x = this.x;
-			this.smokeEmitter.y = this.y;
-			this.fireEmitter.x = this.x;
-			this.fireEmitter.y = this.y;
+			this.smokeEmitter.x = this.x+(this.width/2.0)-(this.smokeEmitter.width/2.0);
+			this.smokeEmitter.y = this.y+(this.height/2.0)-(this.smokeEmitter.height/2.0)-2;
+			this.fireEmitter.x = this.x+(this.width/2.0)-(this.fireEmitter.width/2.0);
+			this.fireEmitter.y = this.y+(this.height/2.0)-(this.fireEmitter.height/2.0)+5;
+			this.eyes.x = this.x;
+			this.eyes.y = this.y;
+			this.eyes.facing = this.facing;
 			
 			if (x < 0)
 			{

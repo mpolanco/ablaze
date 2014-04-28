@@ -1,16 +1,7 @@
 package
-{	
-	import Scenes.PrototypeScene;
-	
-	import org.flixel.FlxButton;
-	import org.flixel.FlxEmitter;
-	import org.flixel.FlxG;
-	import org.flixel.FlxPoint;
-	import org.flixel.FlxSprite;
-	import org.flixel.FlxState;
-	import Cinematic.Scene;
-	import Theatre.Stage;
-	import Scenes.Prototype;
+{		
+	import org.flixel.*;
+	import Levels.*;
 	
 	public class MenuState extends FlxState
 	{
@@ -25,7 +16,7 @@ package
 		{
 			super.create();
 			time = 0;
-			var menuText:FlxSprite = new FlxSprite(FlxG.width/2 - 250, 0, titleText);
+			var menuText:FlxSprite = new FlxSprite(FlxG.width/2 - 250, 0, Assets.titlePNG);
 			menuText.scrollFactor.x = menuText.scrollFactor.y = 0 ; 
 			add(menuText);
 			var playButton:FlxButton = new FlxButton(FlxG.width/2 - 65, 2*FlxG.height/7.0, "", startButtonCallback);
@@ -50,7 +41,7 @@ package
 			add(emitter);
 		}
 		public function startButtonCallback():void {
-			FlxG.switchState(new Prototype());
+			FlxG.switchState(new PlayState(BasicLevel));
 		}
 		public function creditButtonCallback():void {
 			//FlxG.switchState(...);

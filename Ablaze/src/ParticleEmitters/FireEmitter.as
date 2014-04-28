@@ -1,12 +1,9 @@
 package ParticleEmitters
 {
-	import Area.Area;
 	import Area.AreaImpl;
-	import Area.DrapeArea;
 	
 	import Particles.FireParticle;
 	
-	import org.flixel.FlxEmitter;
 	import org.flixel.FlxG;
 	import org.flixel.FlxParticle;
 	
@@ -17,6 +14,7 @@ package ParticleEmitters
 		
 		public function FireEmitter(Area:AreaImpl, X:Number=0, Y:Number=0, Size:Number=0, Frequency=0.05)
 		{
+			trace("Constructing fire emitter");
 			super(X, Y, Size, Area);
 			this.size = Size;
 			setXSpeed(-25,15);
@@ -39,7 +37,7 @@ package ParticleEmitters
 			super.update();
 			this.timer += FlxG.elapsed;
 			if (this.timer > 1 ){
-				trace("resetting")
+				//trace("resetting")
 				this.timer = 0;
 				for(var i:int = 0; i < this.size; i++)
 				{

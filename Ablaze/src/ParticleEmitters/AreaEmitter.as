@@ -20,6 +20,7 @@ package ParticleEmitters
 		
 		override public function emitParticle():void
 		{
+			trace("Emitting area");
 			var particle:FlxParticle = recycle(FlxParticle) as FlxParticle;
 			particle.lifespan = lifespan;
 			particle.elasticity = bounce;
@@ -56,7 +57,7 @@ package ParticleEmitters
 		{
 			super.update();
 			area.x = this.x-64;
-			area.y = this.y-364;
+			area.y = this.y-64;
 		}
 	}
 }

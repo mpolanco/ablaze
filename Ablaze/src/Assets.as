@@ -25,12 +25,6 @@ package
 		
 		// music assets
 		
-		// .csv assets
-		[Embed(source = "../assets/scenes/prototype/mapCSV_Scene_Background.csv", mimeType = "application/octet-stream")]
-		public static const  prototypeBackgroundCSV:Class;
-		[Embed(source = "../assets/scenes/prototype/mapCSV_Scene_Map.csv", mimeType = "application/octet-stream")]
-		public static const  prototypeMapCSV:Class;
-		
 		// sound assets
 		[Embed(source = "../assets/sounds/jump.mp3")]
 		public static const  jumpMP3:Class;
