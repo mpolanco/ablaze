@@ -54,6 +54,8 @@ package {
 			this.eyes.addAnimation( 'happy', [8,9,10,11], 10, true);
 			this.eyes.addAnimation( 'blink', [12,13,14,15,16], 10, true);
 			this.eyes.addAnimation( 'pumpin', [17,18,19,20,21,22,23,24,25], 10, true);
+
+			this.eyes.play("idle");
 		}
 		
 		private function setupControl():void {
@@ -78,36 +80,50 @@ package {
 		
 		override public function update():void {
 			super.update();
+
 			
-			this.smokeEmitter.x = this.x+(this.width/2.0)-(this.smokeEmitter.width/2.0);
-			this.smokeEmitter.y = this.y+(this.height/2.0)-(this.smokeEmitter.height/2.0)-2;
-			this.fireEmitter.x = this.x+(this.width/2.0)-(this.fireEmitter.width/2.0);
-			this.fireEmitter.y = this.y+(this.height/2.0)-(this.fireEmitter.height/2.0)+5;
-			this.eyes.x = this.x;
-			this.eyes.y = this.y;
-			this.eyes.facing = this.facing;
+			animateExpression();
+			
 			
 			if (x < 0)
 			{
 				x = 0;
 			}
 			//TODO: prevent player from exiting the level to the right
-			
-			if (touching == FlxObject.FLOOR)
-			{
-				if (velocity.x != 0)
-				{
-					play("walk");
+		}
+		
+		private function updateEyes():void {
+			this.eyes.x = this.x;
+			this.eyes.y = this.y;
+			this.eyes.facing = this.facing;
+		}
+		
+		private function updateEmitters():void {
+			this.smokeEmitter.x = this.x+(this.width/2.0)-(this.smokeEmitter.width/2.0);
+			this.smokeEmitter.y = this.y+(this.height/2.0)-(this.smokeEmitter.height/2.0)-2;
+			this.fireEmitter.x = this.x+(this.width/2.0)-(this.fireEmitter.width/2.0);
+			this.fireEmitter.y = this.y+(this.height/2.0)-(this.fireEmitter.height/2.0)+5;
+		}
+		
+		private function animateExpression():void {
+			if (this.finished) {
+				var emotion:String = determineEmotion();
+				if (emotion != "") {
+					// TODO: use emotions
 				}
-				else
-				{
-					play("idle");
+				else {
+					// make the player blink every one in a while
+					if (Math.random() < 0.1) {
+						play("blink");
+					} else {
+						play("idle");
+					}	
 				}
 			}
-			else if (velocity.y < 0)
-			{
-				play("jump");
-			}
+		}
+		
+		public function determineEmotion():String {
+			return "";
 		}
 	}
 }

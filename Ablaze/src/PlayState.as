@@ -7,7 +7,7 @@ package
 	{
 		public var level:BaseLevel;
 		protected var levelClass:Class;
-		protected var player:Player;
+		public var player:Player;
 		public static var state:PlayState;
 		
 		public function PlayState(levelClass:Class)

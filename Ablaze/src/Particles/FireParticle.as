@@ -15,6 +15,7 @@ package Particles
 		private static const _endColor:uint = 0x00CC0000;
 		private static const _startScale:Number = 1/4;
 		private static const _endScale:Number = 1/8;
+
 		private var _energy:Number = 1;
 		
 		public function FireParticle()
