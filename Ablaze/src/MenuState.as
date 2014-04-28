@@ -1,20 +1,11 @@
 package
-{	
-	import Scenes.PrototypeScene;
-	
-	import org.flixel.FlxButton;
-	import org.flixel.FlxEmitter;
-	import org.flixel.FlxG;
-	import org.flixel.FlxPoint;
-	import org.flixel.FlxSprite;
-	import org.flixel.FlxState;
-	import Stage.AblazeStage;
+{		
+	import org.flixel.*;
+	import Levels.*;
+
 	
 	public class MenuState extends FlxState
 	{
-		[Embed (source = "../assets/art/Ablaze_Title.png")] public var titleText:Class;
-		[Embed(source='../assets/art/player.png')]
-		public static var ImgPlayer:Class;
 		public var buttonOffset:FlxPoint = new FlxPoint(10,10);
 //		public var menuSprite:OpenningLogo;
 //		public var myFlxSprite:FlxSprite;
@@ -26,7 +17,7 @@ package
 		{
 			super.create();
 			time = 0;
-			var menuText:FlxSprite = new FlxSprite(FlxG.width/2 - 250, 0, titleText);
+			var menuText:FlxSprite = new FlxSprite(FlxG.width/2 - 250, 0, Assets.titlePNG);
 			menuText.scrollFactor.x = menuText.scrollFactor.y = 0 ; 
 			add(menuText);
 			var playButton:FlxButton = new FlxButton(FlxG.width/2 - 65, 2*FlxG.height/7.0, "", startButtonCallback);
@@ -46,13 +37,12 @@ package
 			
 			emitter.start(false, 0, 0.1, 0);
 			emitter.on = true;
-			emitter.particleClass = ImgPlayer;
+			emitter.particleClass = Assets.playerPNG;
 			trace(emitter.countLiving());
 			add(emitter);
 		}
 		public function startButtonCallback():void {
-			var scene:AblazeScene = new PrototypeScene();
-			FlxG.switchState(new AblazeStage(scene));
+			FlxG.switchState(new PlayState(BasicLevel));
 		}
 		public function creditButtonCallback():void {
 			//FlxG.switchState(...);

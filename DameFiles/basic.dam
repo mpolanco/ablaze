@@ -2,49 +2,49 @@
 <project>
   <version>3.1.6</version>
   <bgColor>0x000000</bgColor>
-  <viewPos x="22" y="-3"/>
+  <viewPos x="100" y="0"/>
   <firstLayersTop>false</firstLayersTop>
-  <spriteEntries currentId="1"/>
+  <spriteEntries currentId="2">
+    <sprite name="Ember" idx="1" className="Player" image="dame_assets/fire.png" width="34" height="72" preview="0" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="34" boundsHeight="72" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" tileIndex="-1" canEditFrames="true" lockRotation="false" selected="true"/>
+  </spriteEntries>
   <layers>
     <group name="Group1" id="0" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
-      <maplayer name="Background" id="0" xScroll="0.9" yScroll="1" x="0" y="0" width="2" height="1" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/backdrop.png" tileWidth="192" tileHeight="336" visible="true" hasHits="false" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="192" tileSpacingY="336" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false">
-        <row>1,1</row>
+      <maplayer name="Map2" id="0" xScroll="0.7" yScroll="1" x="0" y="0" width="4" height="1" tileset="../Ablaze/assets/art/background.png" tileWidth="192" tileHeight="336" visible="true" hasHits="false" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="192" tileSpacingY="336" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false">
+        <row>1,1,1,1</row>
       </maplayer>
-      <maplayer name="Map" id="1" xScroll="1" yScroll="1" x="16" y="0" width="22" height="21" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/tiles.png" tileWidth="16" tileHeight="16" visible="true" hasHits="false" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="16" tileSpacingY="16" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false" sharesTileProps="true" selected="true">
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,1,104,105,105,107,2,0,0,0,0,0,0,0,0</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <row>0,14,0,0,0,0,0,13,0,0,0,0,0,0,13,0,0,0,0,0,0,0</row>
-        <row>42,42,42,42,42,41,42,42,43,2,0,0,1,40,42,42,41,42,42,42,42,42</row>
-        <row>62,62,60,62,62,62,62,62,62,58,58,58,58,59,62,62,62,62,62,62,60,62</row>
-        <row>80,80,79,80,80,80,80,80,81,77,77,77,77,78,80,80,80,80,80,80,79,80</row>
-        <row>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</row>
-        <tileProperties>
-          <properties/>
-        </tileProperties>
+      <maplayer name="Map1" id="1" xScroll="1" yScroll="1" x="0" y="0" width="30" height="15" tileset="../Ablaze/assets/art/tiles.png" tileWidth="16" tileHeight="16" visible="true" hasHits="false" drawIdx="1" collideIdx="1" eraseIdx="0" locked="false" exports="true" tileSpacingX="16" tileSpacingY="16" xStagger="0" tileOffsetX="0" tileOffsetY="0" isMaster="false" mapType="2d" hasHeight="false" repeatX="false" repeatY="false" selected="true">
+        <row>5,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,5</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3</row>
+        <row>5,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,5</row>
       </maplayer>
+    </group>
+    <group name="Group2" id="2" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
+      <spritelayer name="Layer1" id="2" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
+        <sprite guid="70A361A6-8CB6-0763-E443-B13DE47A45B9" x="48" y="144" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="1"/>
+      </spritelayer>
     </group>
   </layers>
   <layerTemplates/>
-  <tileMatrix currentMatrix="4" rows="1" cols="4" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/tiles.png">
+  <tileMatrix currentMatrix="0" rows="2" cols="2" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="">
     <row>
-      <tile>104</tile>
-      <tile>105</tile>
-      <tile>106</tile>
-      <tile>107</tile>
+      <tile>0</tile>
+      <tile>-1</tile>
+    </row>
+    <row>
+      <tile>-1</tile>
+      <tile>-1</tile>
     </row>
     <specialConnections>
       <sets>
@@ -111,44 +111,8 @@
       </rows>
     </specialConnections>
   </tileMatrix>
-  <tileMatrixData name="land" rows="3" cols="3" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/tiles.png">
-    <tiles>40,42,43,3,5,6,8,10,11</tiles>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-  </tileMatrixData>
-  <tileMatrixData name="water" rows="2" cols="1" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/tiles.png">
-    <tiles>58,77</tiles>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-  </tileMatrixData>
-  <tileMatrixData name="island_top" rows="2" cols="3" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/tiles.png">
-    <tiles>40,42,43,3,5,6</tiles>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-  </tileMatrixData>
-  <tileMatrixData name="island_bottom" rows="2" cols="3" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/tiles.png">
-    <tiles>59,62,62,78,80,81</tiles>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-    <connections set="0">
-      <tiles>0,0,0,0</tiles>
-    </connections>
-  </tileMatrixData>
-  <tileMatrixData name="float" rows="1" cols="4" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="Learning/Building a retro Flash game in Flixel Part 1/Nutmeg Part 2 - The Map/map/tiles.png">
-    <tiles>104,105,106,107</tiles>
+  <tileMatrixData name="matrix1" rows="3" cols="3" randomizeMiddle="true" ignoreClear="false" ignoreMapEdges="true" allowSpecialTiles="false" tileset="">
+    <tiles>0,0,0,0,0,0,0,0,0</tiles>
     <connections set="0">
       <tiles>0,0,0,0</tiles>
     </connections>
@@ -201,16 +165,13 @@
     <SaveGuidesSeparately>false</SaveGuidesSeparately>
     <ForceTilemapPositionChangesInUnits>false</ForceTilemapPositionChangesInUnits>
   </options>
-  <exporter name="C:\program files (x86)\DAME\lua\Exporters\flixelComplex.lua" spritepos="Top Left" rotatedSpritePos="false" relativePaths="false" useProjectExporterOnly="false">
-    <setting name="ExportOnlyCSV">false</setting>
-    <setting name="Imports"/>
+  <exporter name="/Applications/DAME.app/Contents/Resources/lua/Exporters/ablazeExporter.lua" spritepos="Top Left" rotatedSpritePos="false" relativePaths="false" useProjectExporterOnly="false">
     <setting name="TileMapClass">FlxTilemap</setting>
-    <setting name="FlixelPackage">org.flixel</setting>
-    <setting name="GamePackage"/>
-    <setting name="BaseClass">BaseLevel</setting>
+    <setting name="MainLayer">Group1Map1</setting>
+    <setting name="LevelName">Basic</setting>
     <setting name="FlixelVersion">2.5</setting>
-    <setting name="CSVDir">G:\Aardman\aardman_netmaggame\Nutmeg Part 2 - The Map\map</setting>
-    <setting name="AS3Dir">G:\Aardman\aardman_netmaggame\Nutmeg Part 2 - The Map\src</setting>
+    <setting name="CSVDir">/Users/pedrocattori/Desktop/Projects/ablaze/Ablaze/csv</setting>
+    <setting name="AS3Dir">/Users/pedrocattori/Desktop/Projects/ablaze/Ablaze/src/Levels</setting>
   </exporter>
   <customPropertyTypes/>
   <guides>

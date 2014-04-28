@@ -9,18 +9,21 @@ package Particles
 	{
 		[Embed(source='../../assets/art/RadialDot.png')]
 		public static var FireImg:Class;
-		private var duration:Number = 60*3;
+		private static const duration:Number = 60*3;
 		private var timer:Number
-		private var _startColor:uint = 0xFFFFCC00;
-		private var _endColor:uint = 0x00CC0000;
-		private var _startScale:Number = 1/4;
-		private var _endScale:Number = 1/8;
+		private static const _startColor:uint = 0xFFFFCC00;
+		private static const _endColor:uint = 0x00CC0000;
+		private static const _startScale:Number = 1/4;
+		private static const _endScale:Number = 1/8;
+
 		private var _energy:Number = 1;
 		
 		public function FireParticle()
 		{
+			trace("constructing fire particles");
 			super();
 			this.loadGraphic(FireImg, false, false, 128, 128, false);
+			//this.makeGraphic(64, 64,0xffffffff, false);
 			this.scale.x = _startScale;
 			this.scale.y = _startScale;
 			this.alpha = .5;
