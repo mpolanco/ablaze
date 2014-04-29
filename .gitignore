@@ -6,6 +6,9 @@
 bin-debug/
 html-template/
 
+# Dame
+*.bak
+
 # OSX & Unix
 *.swp
 *~

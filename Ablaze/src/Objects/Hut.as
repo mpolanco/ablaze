@@ -40,6 +40,7 @@ package Objects
 		}
 		
 		override public function update():void {
+			trace("update state:" +PlayState.state +"player:" +PlayState.state.player);
 			var playerX:Number = PlayState.state.player.x;
 			var playerY:Number = PlayState.state.player.y;
 			if (this.triggerArea.isInsideArea(playerX,playerY) && !this.playerInside) {
@@ -92,6 +93,7 @@ package Objects
 		
 		override public function kill():void {
 			super.kill();
+			trace("HUT was killed");
 		}
 	}
 }
