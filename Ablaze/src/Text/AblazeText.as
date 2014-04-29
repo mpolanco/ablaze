@@ -28,7 +28,6 @@ package Text
 		}
 		
 		override public function update():void {
-			// TODO access player coords 
 			var playerX:Number = AblazeStage.stage.player.x;
 			var playerY:Number = AblazeStage.stage.player.y;
 			if (this.bounds.isInsideArea(playerX,playerY) && !this.playerInside) {

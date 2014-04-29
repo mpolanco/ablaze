@@ -1,0 +1,41 @@
+sprite_sheet "curtain" 1024 x 1024 margin 1 order "height"
+
+img "curtain.xcf.bz2"
+
+"blue top" "top mask" * 1 with img
+  "top shadows"
+  "edging ends"
+  "blue ends"
+  "rod"
+;
+
+"blue bottom" "bottom mask" * 1 with img
+  "bottom shadows"
+  "edging ends"
+  "blue ends"
+;
+
+"blue" "edging" * 1 with img
+  "shadows"
+  "edging"
+  "blue curtain"
+;
+
+"purple top" "top mask" * 1 with img
+  "top shadows"
+  "edging ends"
+  "purple ends"
+  "rod"
+;
+
+"purple bottom" "bottom mask" * 1 with img
+  "bottom shadows"
+  "edging ends"
+  "purple ends"
+;
+
+"purple" "edging" * 1 with img
+  "shadows"
+  "edging"
+  "purple curtain"
+;

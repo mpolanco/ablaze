@@ -15,10 +15,11 @@ package Particles
 		private static const _endColor:uint = 0x00CC0000;
 		private static const _startScale:Number = 1/4;
 		private static const _endScale:Number = 1/8;
+		private var lifetime:Number;
 
 		private var _energy:Number = 1;
 		
-		public function FireParticle()
+		public function FireParticle(Lifetime:Number)
 		{
 			super();
 			this.loadGraphic(FireImg, false, false, 128, 128, false);
@@ -28,13 +29,14 @@ package Particles
 			this.alpha = .5;
 			this.timer = 0;
 			this.color = _startColor;
+			this.lifetime = Lifetime;
 			this.scale = new FlxPoint(_startScale,_startScale);
 		}
 		override public function update():void
 		{
 			super.update();
 			this.timer += FlxG.elapsed;
-			if (this.timer > .1) {
+			if (this.timer > this.lifetime) {
 				this.alpha -= 1.0/duration;
 				if (this.alpha <= 0) {
 					super.kill();
@@ -43,9 +45,6 @@ package Particles
 			_energy -= 1/(duration-60*1.5);
 			scale.x -= 1/((1/_endScale)*(duration-60*1.5));
 			scale.y -= 1/((1/_endScale)*(duration-60*1.5));
-//			if (_energy < 0) {
-//				_energy = 0;
-//			}
 			
 			this.color = interpolateColors(_startColor, _endColor, _energy);
 		}

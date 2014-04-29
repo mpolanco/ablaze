@@ -3,6 +3,7 @@ package
 	import Levels.*;
 	
 	import org.flixel.*;
+	import State.PlayState;
 
 	
 	public class MenuState extends FlxState

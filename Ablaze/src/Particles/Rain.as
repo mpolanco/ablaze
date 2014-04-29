@@ -27,7 +27,7 @@ package Particles
 			addInitializer( new AlphaInit( 0.5 ) );
 			
 			addAction( new Move() );
-//			addAction( new CollisionZone( new DiscZone( new Point( 245, 275 ), 150 ), 0.3 ) );
+			addAction( new CollisionZone( new DiscZone( new Point( 245, 275 ), 150 ), 0.3 ) );
 			addAction( new DeathZone( new RectangleZone( -60, -10, 610, 410 ), true ) );
 			addAction( new Accelerate( 0, 200 ) );
 			addAction( new SpeedLimit( 200 ) );
