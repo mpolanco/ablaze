@@ -86,8 +86,8 @@ package {
 			animateExpression();
 			if (x < 0){ // keep player from falling off left side of map
 				x = 0;
-			}else if (x > 480- this.width) { // keep player from falling off right side of map
-				x = 480-this.width;
+			}else if (x > 480 - this.width) { // keep player from falling off right side of map
+				x = 480 - this.width;
 			}
 		}
 		
