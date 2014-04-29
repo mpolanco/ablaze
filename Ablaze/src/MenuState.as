@@ -1,6 +1,7 @@
 package
 {		
 	import Levels.*;
+	import Levels.Forest.*;
 	
 	import org.flixel.*;
 
@@ -50,7 +51,7 @@ package
 			add(emitter);
 		}
 		public function playButtonCallback():void {
-			FlxG.switchState(new PlayState(BasicLevel));
+			FlxG.switchState(new Forest1(null));
 		}
 		
 		public function testButtonCallback():void {

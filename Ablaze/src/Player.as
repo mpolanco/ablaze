@@ -11,9 +11,9 @@ package {
 	import org.flixel.FlxSprite;
 	import org.flixel.plugin.photonstorm.FlxControl;
 	import org.flixel.plugin.photonstorm.FlxControlHandler;
-
+	
 	public class Player extends FlxSprite {
-
+		
 		public var eyes:FlxSprite;
 		public var smokeEmitter:SmokeEmitter;
 		public var fireEmitter:FireEmitter;
@@ -27,7 +27,7 @@ package {
 			this.ignite();
 			this.setupControl();
 		}
-				
+		
 		private function setupGraphics():void {
 			this.makeGraphic(19,26, 0x00ffffff, true);
 			this.alpha = 0;
@@ -56,7 +56,7 @@ package {
 			this.eyes.addAnimation( 'happy', [8,9,10,11], 10, true);
 			this.eyes.addAnimation( 'blink', [12,13,14,15,16], 10, true);
 			this.eyes.addAnimation( 'pumpin', [17,18,19,20,21,22,23,24,25], 10, true);
-
+			
 			this.eyes.play("idle");
 		}
 		
@@ -84,7 +84,6 @@ package {
 			this.updateEyes();
 			this.updateEmitters();
 			animateExpression();
-			
 			if (x < 0){ // keep player from falling off left side of map
 				x = 0;
 			}else if (x > 480- this.width) { // keep player from falling off right side of map
