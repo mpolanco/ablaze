@@ -1,3 +1,17 @@
+# IDE
+.project
+.settings
 .actionScriptProperties
+*.mxml
+bin-debug/
+html-template/
+
+# Dame
+*.bak
+
+# OSX & Unix
+*.swp
+*~
+#*
 .DS_Store
 bin-debug/
