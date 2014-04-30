@@ -1,6 +1,3 @@
-bin-debug/
-#.actionScriptProperties
-*.swp
-*~
-#*
+.actionScriptProperties
 .DS_Store
+bin_debug/
