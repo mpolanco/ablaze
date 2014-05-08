@@ -5,6 +5,8 @@ package {
 	import ParticleEmitters.FireEmitter;
 	import ParticleEmitters.SmokeEmitter;
 	
+	import State.PlayState;
+	
 	import org.flixel.FlxG;
 	import org.flixel.FlxGroup;
 	import org.flixel.FlxObject;
@@ -84,10 +86,12 @@ package {
 			this.updateEyes();
 			this.updateEmitters();
 			animateExpression();
-			if (x < 0){ // keep player from falling off left side of map
-				x = 0;
-			}else if (x > 480 - this.width) { // keep player from falling off right side of map
-				x = 480 - this.width;
+			if (PlayState.state.level) {
+				if (x < 0){ // keep player from falling off left side of map
+					x = 0;
+				}else if (x > PlayState.state.level.mainLayer.width - this.width) { // keep player from falling off right side of map
+					x = PlayState.state.level.mainLayer.width - this.width;
+				}
 			}
 		}
 		

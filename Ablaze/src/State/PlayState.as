@@ -43,18 +43,12 @@ package State
 		{			
 			PlayState.state = this;
 			super.create();
-			var background:FlxSprite = new FlxSprite(0,0, Assets.temp_backgroundJPG);
-			add(background);
-			// temporary background
 			this.level = new this.levelClass(true, onSpriteAdded);
-			FlxG.camera.follow(this.player, FlxCamera.STYLE_PLATFORMER);
 			FlxG.camera.setBounds(0, 0, this.level.mainLayer.width, this.level.mainLayer.height);
+			FlxG.camera.zoom = 2;
+			FlxG.camera.follow(this.player, FlxCamera.STYLE_PLATFORMER);
 			FlxG.worldBounds = new FlxRect(0, 0, this.level.mainLayer.width, this.level.mainLayer.height);
 			_flintFXrenderer = new PixelRenderer( new Rectangle( 0, 0, 640, 480 ) );
-			
-			trace("PLayer:" + this.player);
-			trace("setting singleton to me: "+(this == PlayState.state));
-			trace("playstate create: state:" +PlayState.state +"player:" +PlayState.state.player);
 
 //			var hut:Hut = new Hut(250, 150);
 //			this.level.masterLayer.add(hut);
@@ -85,7 +79,7 @@ package State
 		public function onSpriteAdded(sprite:FlxSprite, group:FlxGroup):void
 		{
 			if (sprite is Player) {
-				trace("Playstate: "+this+"Player FOUND");
+				//trace("Playstate: "+this+"Player FOUND");
 				this.player = sprite as Player;
 				this.player.addGraphics(group);
 			}
