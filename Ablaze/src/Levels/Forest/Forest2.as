@@ -18,19 +18,19 @@ package Levels.Forest
 		
 		override public function update():void {
 			super.update();
-			if (this.exitLeft()) {
+			if (this.playerAtLeftEdge()) {
 				this.fadeTransition(new Forest1(Forest1.spawnRight));
-			}else if (this.exitRight()) {
+			}else if (this.playerAtRightEdge()) {
 				this.fadeTransition(new Forest3(Forest3.spawnLeft));
 			}
 		}
 		
-		private function exitLeft():Boolean {
-			return this.player.x <= 1;
-		}
-		
-		private function exitRight():Boolean {
-			return this.player.x >= 460;
-		}
+//		private function exitLeft():Boolean {
+//			return this.player.x <= 0;
+//		}
+//		
+//		private function exitRight():Boolean {
+//			return this.player.x + this.player.width >= 475;
+//		}
 	}
 }

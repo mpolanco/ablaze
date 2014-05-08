@@ -14,7 +14,7 @@ package
 	public class Assets
 	{
 		// .png assets
-		[Embed(source = "../assets/art/background.png")] 	public static const  backgroundPNG:Class;
+		[Embed(source = "../assets/art/temp_background.jpg")] 	public static const  temp_backgroundJPG:Class;
 		[Embed(source = "../assets/art/drape.png")] 		public static const  drapePNG:Class;
 		[Embed(source = "../assets/art/nutmeg.png")] 		public static const  nutmegPNG:Class;
 		[Embed(source = "../assets/art/player.png")] 		public static const  playerPNG:Class;

@@ -17,13 +17,13 @@ package Levels.Forest
 		
 		override public function update():void {
 			super.update();
-			if (this.exitLeft()) {
+			if (this.playerAtLeftEdge()) {
 				this.fadeTransition(new Forest2(Forest2.spawnRight));
 			}
 		}
 		
-		private function exitLeft():Boolean {
-			return this.player.x <= 1;
-		}
+//		private function exitLeft():Boolean {
+//			return this.player.x <= 1;
+//		}
 	}
 }

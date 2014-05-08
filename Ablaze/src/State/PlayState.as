@@ -1,19 +1,23 @@
 package State
 {
+	import flash.display.Sprite;
+	import flash.geom.Rectangle;
+	
 	import Layer.FXLayer;
 	
 	import Levels.BaseLevel;
 	
-	import Objects.Hut;
-	
 	import ParticleEmitters.RainEmitter;
 	
-	import flash.display.Sprite;
-	import flash.geom.Rectangle;
-	
 	import org.flintparticles.twoD.renderers.PixelRenderer;
-	import org.flixel.*;
-	import org.flixel.plugin.photonstorm.*;
+	import org.flixel.FlxCamera;
+	import org.flixel.FlxG;
+	import org.flixel.FlxGroup;
+	import org.flixel.FlxPoint;
+	import org.flixel.FlxRect;
+	import org.flixel.FlxSprite;
+	import org.flixel.FlxState;
+	import org.flixel.plugin.photonstorm.FlxControl;
 
 	public class PlayState extends FlxState
 	{
@@ -39,6 +43,9 @@ package State
 		{			
 			PlayState.state = this;
 			super.create();
+			var background:FlxSprite = new FlxSprite(0,0, Assets.temp_backgroundJPG);
+			add(background);
+			// temporary background
 			this.level = new this.levelClass(true, onSpriteAdded);
 			FlxG.camera.follow(this.player, FlxCamera.STYLE_PLATFORMER);
 			FlxG.camera.setBounds(0, 0, this.level.mainLayer.width, this.level.mainLayer.height);
@@ -97,6 +104,14 @@ package State
 				FlxG.switchState(levelState);
 			}
 			FlxG.fade(0xaa000000, 1, onFadeComplete);
+		}
+		
+		protected function playerAtLeftEdge():Boolean {
+			return this.player.x <= 0;
+		}
+		
+		protected function playerAtRightEdge():Boolean {
+			return this.player.x + this.player.width >= this.level.mainLayer.width;
 		}
 	}
 }

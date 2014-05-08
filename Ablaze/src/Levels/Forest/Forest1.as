@@ -9,7 +9,7 @@ package Levels.Forest
 	public class Forest1 extends PlayState
 	{
 		//TODO: formalize spawn location
-		public static const spawnRight:FlxPoint = new FlxPoint(450, 200);
+		public static const spawnRight:FlxPoint = new FlxPoint(365, 200);
 		
 		public function Forest1(spawn:FlxPoint)
 		{
@@ -18,13 +18,13 @@ package Levels.Forest
 		
 		override public function update():void {
 			super.update();
-			if (this.exitRight()) { // if player exits to the right
+			if (this.playerAtRightEdge()) { // if player exits to the right
 				this.fadeTransition(new Forest2(Forest2.spawnLeft));
 			}
 		}
 		
-		private function exitRight():Boolean {
-			return (this.player.x >= 460);
-		}
+//		private function exitRight():Boolean {
+//			return (this.player.x >= 375);
+//		}
 	}
 }
