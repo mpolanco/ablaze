@@ -30,12 +30,12 @@ package Levels.Forest
 //				FlxControl.player1.enabled = false;
 //				this.player.velocity.x = 0
 				function onLightning1Complete():void {
-					FlxG.flash(0xffffffff, 4, onLightning2Complete);
+					FlxG.flash(0xffbbbbbb, 4, onLightning2Complete);
 				}
 				function onLightning2Complete():void {
 //					FlxControl.player1.enabled = true;
 				}
-				FlxG.flash(0xffffffff, 2, onLightning1Complete);
+				FlxG.flash(0xffbbbbbb, 2, onLightning1Complete);
 				PlayState.Raining = true;
 			}
 			
