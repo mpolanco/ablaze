@@ -2,6 +2,7 @@ package State
 {
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
+	import flash.sampler.startSampling;
 	
 	import Layer.FXLayer;
 	
@@ -31,6 +32,7 @@ package State
 		public static var rainEnabled:Boolean;
 		protected var spawn:FlxPoint;
 		public var transitioning:Boolean;
+		protected static var _Raining:Boolean = false;
 		
 		public function PlayState(levelClass:Class, spawn:FlxPoint=null)
 		{
@@ -51,6 +53,9 @@ package State
 			FlxG.camera.follow(this.player, FlxCamera.STYLE_PLATFORMER);
 			FlxG.worldBounds = new FlxRect(0, 0, this.level.mainLayer.width, this.level.mainLayer.height);
 			_flintFXrenderer = new PixelRenderer( new Rectangle( 0, 0, 640, 480 ) );
+			if (PlayState.Raining) {
+				this.startRain();
+			}
 
 //			var hut:Hut = new Hut(250, 150);
 //			this.level.masterLayer.add(hut);
@@ -69,13 +74,13 @@ package State
 			FlxG.collide(this.player, this.level.mainLayer);
 		}
 		
-		private function startRain():void {
+		protected function startRain():void {
 			var fx:Sprite = new RainEmitter();	
 			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
 			fx.addChild( _flintFXrenderer );	
 			
 			var rainLayer:FXLayer = new FXLayer(fx);
-			this.add(rainLayer);
+			this.level.masterLayer.add(rainLayer);
 		}
 		
 		public function onSpriteAdded(sprite:FlxSprite, group:FlxGroup):void
@@ -114,5 +119,19 @@ package State
 		protected function playerAtRightEdge():Boolean {
 			return this.player.x + this.player.width >= this.level.mainLayer.width;
 		}
+
+		protected static function get Raining():Boolean
+		{
+			return protected::_Raining;
+		}
+
+		protected static function set Raining(value:Boolean):void
+		{
+			if (!_Raining && value) {
+				PlayState.state.startRain();
+			}
+			protected::_Raining = value;
+		}
+
 	}
 }
