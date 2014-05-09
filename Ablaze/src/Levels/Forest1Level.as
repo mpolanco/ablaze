@@ -68,7 +68,7 @@ package Levels
 
 		public function addSpritesForLayerPlayerEmber(onAddCallback:Function = null):void
 		{
-			addSpriteToLayer(Player, PlayerEmberGroup , 64.000, 272.000, 0.000, false, 1, 1, onAddCallback );//"Ember"
+			addSpriteToLayer(Player, PlayerEmberGroup , 80.000, 160.000, 0.000, false, 1, 1, onAddCallback );//"Ember"
 		}
 
 
