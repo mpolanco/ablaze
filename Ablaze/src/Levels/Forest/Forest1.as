@@ -23,8 +23,5 @@ package Levels.Forest
 			}
 		}
 		
-//		private function exitRight():Boolean {
-//			return (this.player.x >= 375);
-//		}
 	}
 }
