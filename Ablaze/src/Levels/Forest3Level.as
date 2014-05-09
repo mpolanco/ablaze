@@ -7,26 +7,29 @@ package Levels
 	{
 		//Embedded media...
 		[Embed(source="../../csv/levelCSV_Forest3_Map_Background.csv", mimeType="application/octet-stream")] public var CSV_MapBackground:Class;
-		[Embed(source="../../assets/art/background.png")] public var Img_MapBackground:Class;
+		[Embed(source="../../assets/art/temp_background.png")] public var Img_MapBackground:Class;
 		[Embed(source="../../csv/levelCSV_Forest3_Map_Platforms.csv", mimeType="application/octet-stream")] public var CSV_MapPlatforms:Class;
-		[Embed(source="../../assets/art/tiles.png")] public var Img_MapPlatforms:Class;
+		[Embed(source="../../assets/art/tileset.png")] public var Img_MapPlatforms:Class;
+		[Embed(source="../../csv/levelCSV_Forest3_FrontFX_Fade.csv", mimeType="application/octet-stream")] public var CSV_FrontFXFade:Class;
+		[Embed(source="../../assets/art/fadebars.png")] public var Img_FrontFXFade:Class;
 
 		//Tilemaps
 		public var layerMapBackground:FlxTilemap;
 		public var layerMapPlatforms:FlxTilemap;
+		public var layerFrontFXFade:FlxTilemap;
 
 		//Sprites
-		public var ActorsPlayerGroup:FlxGroup = new FlxGroup;
+		public var PlayerEmberGroup:FlxGroup = new FlxGroup;
 
 
 		public function Forest3Level(addToStage:Boolean = true, onAddSpritesCallback:Function = null)
 		{
 			// Generate maps.
 			layerMapBackground = new FlxTilemap;
-			layerMapBackground.loadMap( new CSV_MapBackground, Img_MapBackground, 192,336, FlxTilemap.OFF, 0, 1, 1 );
+			layerMapBackground.loadMap( new CSV_MapBackground, Img_MapBackground, 320,480, FlxTilemap.OFF, 0, 1, 1 );
 			layerMapBackground.x = 0.000000;
 			layerMapBackground.y = 0.000000;
-			layerMapBackground.scrollFactor.x = 0.700000;
+			layerMapBackground.scrollFactor.x = 1.000000;
 			layerMapBackground.scrollFactor.y = 1.000000;
 			layerMapPlatforms = new FlxTilemap;
 			layerMapPlatforms.loadMap( new CSV_MapPlatforms, Img_MapPlatforms, 16,16, FlxTilemap.OFF, 0, 1, 1 );
@@ -34,16 +37,23 @@ package Levels
 			layerMapPlatforms.y = 0.000000;
 			layerMapPlatforms.scrollFactor.x = 1.000000;
 			layerMapPlatforms.scrollFactor.y = 1.000000;
+			layerFrontFXFade = new FlxTilemap;
+			layerFrontFXFade.loadMap( new CSV_FrontFXFade, Img_FrontFXFade, 128,480, FlxTilemap.OFF, 0, 1, 1 );
+			layerFrontFXFade.x = 0.000000;
+			layerFrontFXFade.y = 0.000000;
+			layerFrontFXFade.scrollFactor.x = 1.000000;
+			layerFrontFXFade.scrollFactor.y = 1.000000;
 
 			//Add layers to the master group in correct order.
 			masterLayer.add(layerMapBackground);
 			masterLayer.add(layerMapPlatforms);
-			masterLayer.add(ActorsPlayerGroup);
+			masterLayer.add(PlayerEmberGroup);
+			masterLayer.add(layerFrontFXFade);
 
 
 			if ( addToStage )
 			{
-				addSpritesForLayerActorsPlayer(onAddSpritesCallback);
+				addSpritesForLayerPlayerEmber(onAddSpritesCallback);
 				FlxG.state.add(masterLayer);
 			}
 
@@ -51,14 +61,14 @@ package Levels
 
 			boundsMinX = 0;
 			boundsMinY = 0;
-			boundsMaxX = 768;
-			boundsMaxY = 336;
+			boundsMaxX = 640;
+			boundsMaxY = 480;
 
 		}
 
-		public function addSpritesForLayerActorsPlayer(onAddCallback:Function = null):void
+		public function addSpritesForLayerPlayerEmber(onAddCallback:Function = null):void
 		{
-			addSpriteToLayer(Player, ActorsPlayerGroup , 208.000, 128.000, 0.000, false, 1, 1, onAddCallback );//"Ember"
+			addSpriteToLayer(Player, PlayerEmberGroup , 48.000, 288.000, 0.000, false, 1, 1, onAddCallback );//"Ember"
 		}
 
 
