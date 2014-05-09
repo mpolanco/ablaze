@@ -26,13 +26,11 @@ package Objects
 		private var shelterTimer:Timer;
 		private var burnTimer:Timer;
 		public var fadeRate:Number = 1.0/30.0;
-		
-		[Embed(source = '../assets/art/hut_small.png')] private static var hutPNG:Class;
-		
+				
 		public function Hut(X:Number=0, Y:Number=0, SimpleGraphic:Class=null)
 		{
 			super(X, Y, SimpleGraphic);
-			this.loadGraphic(hutPNG, false, false, 150, 80, false);
+			this.loadGraphic(Assets.hutPNG, false, false, 192, 96, false);
 			this.burnArea = new UpperHalfCircleArea(X + 75, Y + 75, 75);
 			this.triggerArea = new RectangleArea(X, Y, 150, 80, false);
 			this.fireEmitter = new FireEmitter(this.burnArea, this.x + 75, this.y + 75, 150, .5, .5);

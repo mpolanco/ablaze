@@ -14,12 +14,13 @@ package
 	public class Assets
 	{
 		// .png assets
-		[Embed(source = "../assets/art/temp_background.png")] 	public static const  temp_backgroundPNG:Class;
 		[Embed(source = "../assets/art/drape.png")] 		public static const  drapePNG:Class;
+		[Embed(source = '../assets/art/hut.png')] 			public static const hutPNG:Class;
 		[Embed(source = "../assets/art/nutmeg.png")] 		public static const  nutmegPNG:Class;
 		[Embed(source = "../assets/art/player.png")] 		public static const  playerPNG:Class;
 		[Embed(source = "../assets/art/radialDot.png")] 	public static const  radialDotPNG:Class;
 		[Embed(source = "../assets/art/smoke.png")] 		public static const  smokePNG:Class;
+		[Embed(source = "../assets/art/temp_background.png")] 	public static const  temp_backgroundPNG:Class;
 		[Embed(source = "../assets/art/tiles.png")] 		public static const  tilesPNG:Class;
 		[Embed(source = "../assets/art/title.png")] 		public static const  titlePNG:Class;
 		

@@ -9,7 +9,7 @@ package Levels.Forest
 	public class Forest1 extends PlayState
 	{
 		//TODO: formalize spawn location
-		public static const spawnRight:FlxPoint = new FlxPoint(365, 200);
+		public static const spawnRight:FlxPoint = new FlxPoint(620, 200);
 		
 		public function Forest1(spawn:FlxPoint)
 		{

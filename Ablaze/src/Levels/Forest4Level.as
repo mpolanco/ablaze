@@ -2,7 +2,12 @@
 
 package Levels
 {
-	import org.flixel.*;
+	import Objects.Hut;
+	
+	import org.flixel.FlxG;
+	import org.flixel.FlxGroup;
+	import org.flixel.FlxTilemap;
+
 	public class Forest4Level extends BaseLevel
 	{
 		//Embedded media...
@@ -20,6 +25,7 @@ package Levels
 
 		//Sprites
 		public var ObjectsHutGroup:FlxGroup = new FlxGroup;
+		public var PlayerEmberGroup:FlxGroup = new FlxGroup;
 
 
 		public function Forest4Level(addToStage:Boolean = true, onAddSpritesCallback:Function = null)
@@ -48,12 +54,14 @@ package Levels
 			masterLayer.add(layerMapBackground);
 			masterLayer.add(layerMapPlatforms);
 			masterLayer.add(ObjectsHutGroup);
+			masterLayer.add(PlayerEmberGroup);
 			masterLayer.add(layerFrontFXFade);
 
 
 			if ( addToStage )
 			{
 				addSpritesForLayerObjectsHut(onAddSpritesCallback);
+				addSpritesForLayerPlayerEmber(onAddSpritesCallback);
 				FlxG.state.add(masterLayer);
 			}
 
@@ -69,6 +77,11 @@ package Levels
 		public function addSpritesForLayerObjectsHut(onAddCallback:Function = null):void
 		{
 			addSpriteToLayer(Hut, ObjectsHutGroup , 192.000, 176.000, 0.000, false, 1, 1, onAddCallback );//"Hut"
+		}
+
+		public function addSpritesForLayerPlayerEmber(onAddCallback:Function = null):void
+		{
+			addSpriteToLayer(Player, PlayerEmberGroup , 32.000, 272.000, 0.000, false, 1, 1, onAddCallback );//"Ember"
 		}
 
 

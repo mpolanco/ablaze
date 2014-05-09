@@ -94,7 +94,8 @@ package State
 		
 		protected function fadeTransition(levelState:PlayState):void {
 			FlxControl.player1.enabled = false;
-			FlxControl.player1.setGravity(0,0);
+			//FlxControl.player1.setGravity(0,0);
+			this.player.velocity.y = 0;
 			function onFadeComplete():void {
 				FlxG.switchState(levelState);
 			}
