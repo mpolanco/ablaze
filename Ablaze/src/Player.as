@@ -110,10 +110,11 @@ package {
 		
 		private function animateExpression():void {
 			//TODO: this.finished is always false since all animations have looping set to true
-			if (this.finished) {
+			if (this.eyes.finished) {
 				var emotion:String = determineEmotion();
+				trace("emo:"+ emotion);
 				if (emotion != "") {
-					// TODO: use emotions
+					this.eyes.play(emotion);
 				}
 				else {
 					// make the player blink every one in a while
@@ -127,6 +128,9 @@ package {
 		}
 		
 		public function determineEmotion():String {
+			if (PlayState.Raining) {
+				return "sad";
+			}
 			return "";
 		}
 	}

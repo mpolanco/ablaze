@@ -123,12 +123,12 @@ package State
 			return this.player.x + this.player.width >= this.level.mainLayer.width;
 		}
 
-		protected static function get Raining():Boolean
+		public static function get Raining():Boolean
 		{
 			return protected::_Raining;
 		}
 
-		protected static function set Raining(value:Boolean):void
+		public static function set Raining(value:Boolean):void
 		{
 			if (!_Raining && value) {
 				PlayState.state.startRain();
