@@ -7,6 +7,8 @@ package State
 	
 	import Levels.BaseLevel;
 	
+	import Objects.Hut;
+	
 	import ParticleEmitters.RainEmitter;
 	
 	import org.flintparticles.twoD.renderers.PixelRenderer;
@@ -82,6 +84,9 @@ package State
 				//trace("Playstate: "+this+"Player FOUND");
 				this.player = sprite as Player;
 				this.player.addGraphics(group);
+			}else if (sprite is Hut) {
+				var hut:Hut = sprite as Hut;
+				group.add(hut.fireEmitter);
 			}
 		}
 		
