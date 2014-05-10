@@ -1,9 +1,5 @@
 package State
 {
-	import flash.display.Sprite;
-	import flash.geom.Rectangle;
-	import flash.sampler.startSampling;
-	
 	import Layer.FXLayer;
 	
 	import Levels.BaseLevel;
@@ -14,6 +10,7 @@ package State
 	
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
+	import flash.sampler.startSampling;
 	
 	import org.flintparticles.twoD.renderers.PixelRenderer;
 	import org.flixel.FlxCamera;
@@ -36,6 +33,7 @@ package State
 		protected var spawn:FlxPoint;
 		public var transitioning:Boolean;
 		protected static var _Raining:Boolean = false;
+		public var darkness:FlxSprite;
 		
 		public function PlayState(levelClass:Class, spawn:FlxPoint=null)
 		{
@@ -50,6 +48,7 @@ package State
 		{			
 			PlayState.state = this;
 			super.create();
+			darkness = new FlxSprite(0,0);
 			this.level = new this.levelClass(true, onSpriteAdded);
 			FlxG.camera.setBounds(0, 0, this.level.mainLayer.width, this.level.mainLayer.height);
 			FlxG.camera.zoom = 2;
@@ -81,6 +80,7 @@ package State
 			var fx:Sprite = new RainEmitter();	
 			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
 			fx.addChild( _flintFXrenderer );	
+			this.setDarkness(.5);
 			
 			var rainLayer:FXLayer = new FXLayer(fx);
 			this.level.masterLayer.add(rainLayer);
@@ -135,6 +135,23 @@ package State
 			}
 			protected::_Raining = value;
 		}
-
+		
+		/*
+		 * @Params alpha - intensity of the darkness in the scene from 0-1
+		 */
+		public function setDarkness(alpha:Number) {
+			darkness = new FlxSprite(0,0);
+			darkness.makeGraphic(FlxG.width, FlxG.height, 0xff000000);
+			darkness.alpha = alpha;
+			darkness.scrollFactor.x = darkness.scrollFactor.y = 0;
+			darkness.blend = "multiply";
+			
+			add(darkness);
+		}
+		
+		override public function draw():void {
+			darkness.fill(0xff000000);
+			super.draw();
+		}
 	}
 }

@@ -5,7 +5,11 @@ package {
 	import ParticleEmitters.FireEmitter;
 	import ParticleEmitters.SmokeEmitter;
 	
+	import Particles.LightCircle;
+	
 	import State.PlayState;
+	
+	import flash.display.Graphics;
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxGroup;
@@ -19,6 +23,7 @@ package {
 		public var eyes:FlxSprite;
 		public var smokeEmitter:SmokeEmitter;
 		public var fireEmitter:FireEmitter;
+		public var lightCircle:LightCircle;
 		
 		[Embed(source = '../assets/art/ember_eyes.png')] private static var EyesPNG:Class;
 		
@@ -49,6 +54,7 @@ package {
 			group.add(this.smokeEmitter);
 			group.add(this.fireEmitter);
 			group.add(this.eyes);
+			group.add(this.lightCircle);
 		}
 		
 		private function addAnimations():void {
@@ -79,6 +85,7 @@ package {
 		private function ignite():void {
 			this.smokeEmitter = new SmokeEmitter(this.x, this.y, 100);
 			this.fireEmitter = new FireEmitter(new PointArea(this.x,this.y), this.x, this.y, 100);
+			this.lightCircle = new LightCircle(this.x, this.y, 256);
 		}
 		
 		override public function update():void {
@@ -106,19 +113,20 @@ package {
 			this.smokeEmitter.y = this.y+(this.height/2.0)-(this.smokeEmitter.height/2.0)-2;
 			this.fireEmitter.x = this.x+(this.width/2.0)-(this.fireEmitter.width/2.0);
 			this.fireEmitter.y = this.y+(this.height/2.0)-(this.fireEmitter.height/2.0)+5;
+			this.lightCircle.x = this.x/lightCircle.scale.x;
+			this.lightCircle.y = this.y/lightCircle.scale.y;
 		}
 		
 		private function animateExpression():void {
 			//TODO: this.finished is always false since all animations have looping set to true
 			if (this.eyes.finished) {
 				var emotion:String = determineEmotion();
-				trace("emo:"+ emotion);
 				if (emotion != "") {
 					this.eyes.play(emotion);
 				}
 				else {
 					// make the player blink every one in a while
-					if (Math.random() < 0.1) {
+					if (Math.random() < 0.05) {
 						this.eyes.play("blink");
 					} else {
 						this.eyes.play("idle");

@@ -52,7 +52,7 @@ package
 			add(emitter);
 		}
 		public function playButtonCallback():void {
-			FlxG.switchState(new Forest1(null));
+			FlxG.switchState(new Forest3(null));
 		}
 		
 		public function testButtonCallback():void {
