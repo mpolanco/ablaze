@@ -27,6 +27,7 @@ package State
 		public var level:BaseLevel;
 		protected var levelClass:Class;
 		public var player:Player;
+		public var hut:Hut;
 		public static var state:PlayState;
 		private var _flintFXrenderer:PixelRenderer;
 		public static var rainEnabled:Boolean;
@@ -34,6 +35,8 @@ package State
 		public var transitioning:Boolean;
 		protected static var _Raining:Boolean = false;
 		public var darkness:FlxSprite;
+		protected var fx:Sprite;
+		protected var rainLayer:FXLayer;
 		
 		public function PlayState(levelClass:Class, spawn:FlxPoint=null)
 		{
@@ -42,13 +45,15 @@ package State
 			this.levelClass = levelClass;
 			this.spawn = spawn;
 			this.transitioning = true;
+			this.darkness = new FlxSprite(0,0);
+			add(this.darkness);
 		}
 		
 		override public function create():void	
 		{			
 			PlayState.state = this;
 			super.create();
-			darkness = new FlxSprite(0,0);
+			setDarkness(0);
 			this.level = new this.levelClass(true, onSpriteAdded);
 			FlxG.camera.setBounds(0, 0, this.level.mainLayer.width, this.level.mainLayer.height);
 			FlxG.camera.zoom = 2;
@@ -77,13 +82,18 @@ package State
 		}
 		
 		protected function startRain():void {
-			var fx:Sprite = new RainEmitter();	
+			fx = new RainEmitter();	
 			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
 			fx.addChild( _flintFXrenderer );	
 			this.setDarkness(.5);
 			
-			var rainLayer:FXLayer = new FXLayer(fx);
+			rainLayer = new FXLayer(fx);
 			this.level.masterLayer.add(rainLayer);
+		}
+		
+		protected function stopRain():void {
+			FlxG.stage.removeChild(fx);
+			this.level.masterLayer.remove(rainLayer, true);
 		}
 		
 		public function onSpriteAdded(sprite:FlxSprite, group:FlxGroup):void
@@ -93,7 +103,7 @@ package State
 				this.player = sprite as Player;
 				this.player.addGraphics(group);
 			}else if (sprite is Hut) {
-				var hut:Hut = sprite as Hut;
+				this.hut = sprite as Hut;
 				group.add(hut.fireEmitter);
 			}
 		}
@@ -132,6 +142,8 @@ package State
 		{
 			if (!_Raining && value) {
 				PlayState.state.startRain();
+			} else if (_Raining && !value) {
+				PlayState.state.stopRain();
 			}
 			protected::_Raining = value;
 		}
@@ -140,6 +152,7 @@ package State
 		 * @Params alpha - intensity of the darkness in the scene from 0-1
 		 */
 		public function setDarkness(alpha:Number) {
+			remove(this.darkness,true);
 			darkness = new FlxSprite(0,0);
 			darkness.makeGraphic(FlxG.width, FlxG.height, 0xff000000);
 			darkness.alpha = alpha;

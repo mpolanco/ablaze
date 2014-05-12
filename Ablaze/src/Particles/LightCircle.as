@@ -26,10 +26,8 @@ package Particles
 			this.baseRadius = Radius;
 			this.scale.x = this.baseRadius / (128);
 			this.scale.y = this.baseRadius / (128);
-//			this.offset.x = -1 * this.radius * this.scale.x;
-//			this.offset.y = -1 * this.radius * this.scale.y;
 			this.blend = "screen";
-			this.color = 0xffffe0;
+			this.color = 0xFFE4B5;
 			this.alpha = 1;
 		}
 		override public function update():void {
@@ -39,11 +37,9 @@ package Particles
 		}
 		
 		override public function draw():void {
-			if (PlayState.state.darkness != null) {
-//				this.scale
+			if (PlayState.state.darkness != null && PlayState.state.player != null) {
 				var screenXY:FlxPoint = PlayState.state.player.getScreenXY();
 				PlayState.state.darkness.stamp(this, screenXY.x-this.flickerRadius/this.scale.x/2, screenXY.y-this.baseRadius/this.scale.y/2);
-//				drawCircle(this.x,this.y,30,0xffffff);
 			}
 		}
 		
