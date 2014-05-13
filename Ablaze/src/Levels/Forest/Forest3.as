@@ -2,6 +2,8 @@ package Levels.Forest
 {
 	import Levels.Forest3Level;
 	
+	import Sound.SoundMaker;
+	
 	import State.PlayState;
 	
 	import org.flixel.FlxG;
@@ -41,6 +43,8 @@ package Levels.Forest
 				}
 				FlxG.flash(0xffbbbbbb, 2, onLightning1Complete);
 				FlxG.play(thunder, .5);
+				SoundMaker.EvilBackground.play();
+				SoundMaker.EvilBackground.volume = .2;
 				PlayState.Raining = true;
 			}
 			

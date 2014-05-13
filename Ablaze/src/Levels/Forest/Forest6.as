@@ -2,6 +2,8 @@ package Levels.Forest
 {
 	import Levels.Forest6Level;
 	
+	import Sound.SoundMaker;
+	
 	import State.PlayState;
 	
 	import org.flixel.FlxPoint;
@@ -18,11 +20,15 @@ package Levels.Forest
 		override public function create():void {
 			super.create();
 			this.setDarkness(.8);
+			SoundMaker.ForestTheme.volume = .5;
+			SoundMaker.EvilBackground.volume = .5;
 		}
 		override public function update():void {
 			super.update();
 			if (this.playerAtLeftEdge()) {
 				PlayState.Raining = true;
+				SoundMaker.EvilBackground.volume = .2;
+				SoundMaker.ForestTheme.volume = 1;
 				this.fadeTransition(new Forest5(Forest5.spawnRight));
 			} 
 			else if (this.playerAtRightEdge()) {
