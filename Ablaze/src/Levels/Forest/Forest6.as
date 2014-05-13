@@ -18,11 +18,11 @@ package Levels.Forest
 		override public function create():void {
 			super.create();
 			this.setDarkness(.8);
-			PlayState.Raining = false;
 		}
 		override public function update():void {
 			super.update();
 			if (this.playerAtLeftEdge()) {
+				PlayState.Raining = true;
 				this.fadeTransition(new Forest5(Forest5.spawnRight));
 			} 
 			else if (this.playerAtRightEdge()) {

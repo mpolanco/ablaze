@@ -24,6 +24,8 @@ package State
 
 	public class PlayState extends FlxState
 	{
+		[Embed (source="../assets/sounds/Rain_Background-Mike_Koenig-1681389445.mp3")] private static var rain:Class;
+		
 		public var level:BaseLevel;
 		protected var levelClass:Class;
 		public var player:Player;
@@ -86,6 +88,7 @@ package State
 			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
 			fx.addChild( _flintFXrenderer );	
 			this.setDarkness(.5);
+			FlxG.play(rain,1,true,true);
 			
 			rainLayer = new FXLayer(fx);
 			this.level.masterLayer.add(rainLayer);

@@ -21,6 +21,7 @@ package Levels.Forest
 				this.fadeTransition(new Forest4(Forest4.spawnRight));
 			} 
 			else if (this.playerAtRightEdge()) {
+				PlayState.Raining = false;
 				this.fadeTransition(new Forest6(Forest6.spawnLeft));
 			}
 		}

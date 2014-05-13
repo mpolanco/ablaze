@@ -6,10 +6,13 @@ package Levels.Forest
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxPoint;
+	import org.flixel.FlxSound;
 	import org.flixel.plugin.photonstorm.FlxControl;
 	
 	public class Forest3 extends PlayState
 	{
+		[Embed (source="../assets/sounds/Thunder Clap-SoundBible.com-1913038465.mp3")] private static var thunder:Class;
+		
 		public static const spawnLeft:FlxPoint = new FlxPoint(5, 200);
 		public static const spawnRight:FlxPoint = new FlxPoint(620, 200);
 		
@@ -31,11 +34,13 @@ package Levels.Forest
 //				this.player.velocity.x = 0
 				function onLightning1Complete():void {
 					FlxG.flash(0xffbbbbbb, 4, onLightning2Complete);
+					FlxG.play(thunder);
 				}
 				function onLightning2Complete():void {
 //					FlxControl.player1.enabled = true;
 				}
 				FlxG.flash(0xffbbbbbb, 2, onLightning1Complete);
+				FlxG.play(thunder, .5);
 				PlayState.Raining = true;
 			}
 			

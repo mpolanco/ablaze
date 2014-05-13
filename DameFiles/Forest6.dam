@@ -25,7 +25,7 @@
         <row>1,1,1,1,1,1,1,1,1,1,1,1,1</row>
       </maplayer>
     </group>
-    <group name="Player" id="3" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
+    <group name="Player" id="3" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true" selected="true">
       <spritelayer name="Ember" id="3" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false">
         <sprite guid="BCE5F747-B30B-2085-0776-6004FF37E9EC" x="64" y="160" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="1" frame="0"/>
       </spritelayer>
