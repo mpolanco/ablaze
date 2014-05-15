@@ -11,6 +11,7 @@ package State
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
 	import flash.sampler.startSampling;
+	import flash.ui.Mouse;
 	
 	import org.flintparticles.twoD.renderers.PixelRenderer;
 	import org.flixel.FlxCamera;
@@ -49,6 +50,8 @@ package State
 			this.transitioning = true;
 			this.darkness = new FlxSprite(0,0);
 			add(this.darkness);
+			Mouse.hide();
+			FlxG.mouse.hide();
 		}
 		
 		override public function create():void	

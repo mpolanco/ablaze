@@ -13,6 +13,6 @@ package
 		{
 			super(320,240,MenuState,2);
 			SoundMaker.ForestTheme.play();
-		}
+		} 
 	}
 }
