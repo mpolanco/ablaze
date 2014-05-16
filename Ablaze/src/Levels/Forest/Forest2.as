@@ -54,12 +54,6 @@ package Levels.Forest
 			}
 		}
 		
-		public function killText():void {
-			for (var i:Number=0; i < text.length; i++) {
-				this.level.masterLayer.remove((text[i] as AblazeText));
-			}
-		}
-		
 //		private function exitLeft():Boolean {
 //			return this.player.x <= 0;
 //		}
