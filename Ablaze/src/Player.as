@@ -80,7 +80,7 @@ package {
 			FlxControl.player1.setCursorControl(false, false, true, true); // use only left & right arrow keys
 			//TODO: should be KEYMODE_JUST_DOWN, but thats unresponsive... fix it!
 			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 200, FlxObject.FLOOR, 250,0, SoundMaker.playJump);
-			FlxControl.player1.setMovementSpeed(400, 0, 100, 200, 400, 0);
+			FlxControl.player1.setMovementSpeed(200, 0, 75, 200, 400, 0);
 			FlxControl.player1.setGravity(0, 400);
 			this.facing = FlxObject.RIGHT;
 		}
@@ -93,6 +93,7 @@ package {
 		
 		override public function update():void {
 			super.update();
+			trace(this.x + " " + this.y);
 			this.updateEyes();
 			this.updateEmitters();
 			animateExpression();

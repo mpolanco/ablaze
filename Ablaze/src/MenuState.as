@@ -3,6 +3,8 @@ package
 	import Levels.*;
 	import Levels.Forest.*;
 	
+	import Sound.SoundMaker;
+	
 	import State.PlayState;
 	
 	import flash.display.StageDisplayState;
@@ -31,6 +33,8 @@ package
 		{
 			super.create();
 			time = 0;
+			SoundMaker.MainTheme.play();
+			
 			menuText = new FlxText(FlxG.width/4,0,FlxG.width/2, "Ablaze",true);
 			menuText.setFormat("Ablaze", 72, 0xffffffff, "center");
 			menuText.scrollFactor.x = menuText.scrollFactor.y = 0 ; 
@@ -69,7 +73,9 @@ package
 			FlxG.mouse.show();
 		}
 		public function playButtonCallback():void {
-			FlxG.switchState(new Forest1(null));
+			FlxG.switchState(new Forest2(null));
+			SoundMaker.MainTheme.stop();
+			SoundMaker.MainTheme1Loop.play();
 		}
 		
 		public function testButtonCallback():void {

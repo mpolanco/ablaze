@@ -43,6 +43,7 @@ package State
 		protected var fx:Sprite;
 		protected var rainLayer:FXLayer;
 		protected static var _inHut:Boolean;
+		public var text:Array;
 		
 		public function PlayState(levelClass:Class, spawn:FlxPoint=null)
 		{

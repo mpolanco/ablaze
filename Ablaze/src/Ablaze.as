@@ -12,7 +12,7 @@ package
 		public function Ablaze() 
 		{
 			super(320,240,MenuState,2);
-			SoundMaker.ForestTheme.play();
+//			SoundMaker.ForestTheme.play();
 		} 
 	}
 }
