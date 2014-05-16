@@ -9,7 +9,7 @@ package Levels
 		[Embed(source="../../csv/levelCSV_Forest2_Map_Background.csv", mimeType="application/octet-stream")] public var CSV_MapBackground:Class;
 		[Embed(source="../../assets/art/temp_background.png")] public var Img_MapBackground:Class;
 		[Embed(source="../../csv/levelCSV_Forest2_Map_Platforms.csv", mimeType="application/octet-stream")] public var CSV_MapPlatforms:Class;
-		[Embed(source="../../assets/art/tileset.png")] public var Img_MapPlatforms:Class;
+		[Embed(source="../../assets/art/tileset.png.old1.png")] public var Img_MapPlatforms:Class;
 		[Embed(source="../../csv/levelCSV_Forest2_FrontFX_Fade.csv", mimeType="application/octet-stream")] public var CSV_FrontFXFade:Class;
 		[Embed(source="../../assets/art/fadebars.png")] public var Img_FrontFXFade:Class;
 

@@ -3,14 +3,14 @@
 package Levels
 {
 	import org.flixel.*;
-	public class Forest3Level extends BaseLevel
+	public class Forest7Level extends BaseLevel
 	{
 		//Embedded media...
-		[Embed(source="../../csv/levelCSV_Forest3_Map_Background.csv", mimeType="application/octet-stream")] public var CSV_MapBackground:Class;
-		[Embed(source="../../assets/art/temp_background.png")] public var Img_MapBackground:Class;
-		[Embed(source="../../csv/levelCSV_Forest3_Map_Platforms.csv", mimeType="application/octet-stream")] public var CSV_MapPlatforms:Class;
-		[Embed(source="../../assets/art/tileset.png.old1.png")] public var Img_MapPlatforms:Class;
-		[Embed(source="../../csv/levelCSV_Forest3_FrontFX_Fade.csv", mimeType="application/octet-stream")] public var CSV_FrontFXFade:Class;
+		[Embed(source="../../csv/levelCSV_Forest7_Map_Background.csv", mimeType="application/octet-stream")] public var CSV_MapBackground:Class;
+		[Embed(source="../../assets/art/cave_wide_temple_v004.png")] public var Img_MapBackground:Class;
+		[Embed(source="../../csv/levelCSV_Forest7_Map_Platforms.csv", mimeType="application/octet-stream")] public var CSV_MapPlatforms:Class;
+		[Embed(source="../../assets/art/set-cave_moody.png")] public var Img_MapPlatforms:Class;
+		[Embed(source="../../csv/levelCSV_Forest7_FrontFX_Fade.csv", mimeType="application/octet-stream")] public var CSV_FrontFXFade:Class;
 		[Embed(source="../../assets/art/fadebars.png")] public var Img_FrontFXFade:Class;
 
 		//Tilemaps
@@ -22,7 +22,7 @@ package Levels
 		public var PlayerEmberGroup:FlxGroup = new FlxGroup;
 
 
-		public function Forest3Level(addToStage:Boolean = true, onAddSpritesCallback:Function = null)
+		public function Forest7Level(addToStage:Boolean = true, onAddSpritesCallback:Function = null)
 		{
 			// Generate maps.
 			layerMapBackground = new FlxTilemap;
@@ -32,7 +32,7 @@ package Levels
 			layerMapBackground.scrollFactor.x = 1.000000;
 			layerMapBackground.scrollFactor.y = 1.000000;
 			layerMapPlatforms = new FlxTilemap;
-			layerMapPlatforms.loadMap( new CSV_MapPlatforms, Img_MapPlatforms, 16,16, FlxTilemap.OFF, 0, 1, 1 );
+			layerMapPlatforms.loadMap( new CSV_MapPlatforms, Img_MapPlatforms, 48,48, FlxTilemap.OFF, 0, 1, 1 );
 			layerMapPlatforms.x = 0.000000;
 			layerMapPlatforms.y = 0.000000;
 			layerMapPlatforms.scrollFactor.x = 1.000000;
@@ -68,7 +68,7 @@ package Levels
 
 		public function addSpritesForLayerPlayerEmber(onAddCallback:Function = null):void
 		{
-			addSpriteToLayer(Player, PlayerEmberGroup , 48.000, 288.000, 0.000, false, 1, 1, onAddCallback );//"Ember"
+			addSpriteToLayer(Player, PlayerEmberGroup , 64.000, 160.000, 0.000, false, 1, 1, onAddCallback );//"Ember"
 		}
 
 
