@@ -20,7 +20,7 @@ package Levels.Forest
 		override public function create():void {
 			super.create();
 			this.setDarkness(.8);
-			SoundMaker.ForestTheme.volume = .5;
+			SoundMaker.MainTheme1Loop.volume = .5;
 			SoundMaker.EvilBackground.volume = .5;
 		}
 		override public function update():void {
@@ -28,7 +28,7 @@ package Levels.Forest
 			if (this.playerAtLeftEdge()) {
 				PlayState.Raining = true;
 				SoundMaker.EvilBackground.volume = .2;
-				SoundMaker.ForestTheme.volume = 1;
+				SoundMaker.MainTheme1Loop.volume = 1;
 				this.fadeTransition(new Forest5(Forest5.spawnRight));
 			} 
 			else if (this.playerAtRightEdge()) {

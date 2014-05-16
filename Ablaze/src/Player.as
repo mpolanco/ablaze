@@ -141,6 +141,9 @@ package {
 		
 		public function determineEmotion():String {
 			if (PlayState.Raining) {
+				if (PlayState.inHut) {
+					return "happy";
+				}
 				return "sad";
 			}
 			return "";

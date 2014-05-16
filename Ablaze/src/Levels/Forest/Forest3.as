@@ -39,7 +39,7 @@ package Levels.Forest
 			var text2:AblazeText = new AblazeText(200,180,100,
 				new RectangleArea(200, 240, 80, 60, false), "Go Home");
 			var text3:AblazeText = new AblazeText(300,220,300,
-				new RectangleArea(315, 250, 300, 200, false), "Don't belong...");
+				new RectangleArea(315, 250, 300, 200, false), "I Don't belong...");
 			
 			text.push(text1,text2,text3);
 			

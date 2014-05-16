@@ -45,11 +45,13 @@ package Objects
 			var playerY:Number = PlayState.state.player.y;
 			if (this.triggerArea.isInsideArea(playerX,playerY) && !this.playerInside) {
 				this.playerInside = true;
+				PlayState.inHut = true;
 				startShelterTimer();
 				trace("inside");
 			}
 			if (!this.triggerArea.isInsideArea(playerX,playerY) && this.playerInside) {
 				this.playerInside = false;
+				PlayState.inHut = false;
 				this.shelterTimer.stop();
 				this.shelterTimer.reset();
 			}
@@ -63,6 +65,7 @@ package Objects
 		
 		public function burnUp(e:TimerEvent):void {
 			burnTimer = new Timer(40, 49);
+			PlayState.inHut = false;
 			var soundTimer:Timer = new Timer(40,20);
 			soundTimer.addEventListener(TimerEvent.TIMER_COMPLETE, SoundMaker.playWhoosh);
 			soundTimer.start();
