@@ -2,19 +2,14 @@
 
 package Levels
 {
-	import Objects.Hut;
-	
-	import org.flixel.FlxG;
-	import org.flixel.FlxGroup;
-	import org.flixel.FlxTilemap;
-
+	import org.flixel.*;
 	public class Forest4Level extends BaseLevel
 	{
 		//Embedded media...
 		[Embed(source="../../csv/levelCSV_Forest4_Map_Background.csv", mimeType="application/octet-stream")] public var CSV_MapBackground:Class;
 		[Embed(source="../../assets/art/temp_background.png")] public var Img_MapBackground:Class;
 		[Embed(source="../../csv/levelCSV_Forest4_Map_Platforms.csv", mimeType="application/octet-stream")] public var CSV_MapPlatforms:Class;
-		[Embed(source="../../assets/art/tileset.png")] public var Img_MapPlatforms:Class;
+		[Embed(source="../../assets/art/tileset.png.old1.png")] public var Img_MapPlatforms:Class;
 		[Embed(source="../../csv/levelCSV_Forest4_FrontFX_Fade.csv", mimeType="application/octet-stream")] public var CSV_FrontFXFade:Class;
 		[Embed(source="../../assets/art/fadebars.png")] public var Img_FrontFXFade:Class;
 

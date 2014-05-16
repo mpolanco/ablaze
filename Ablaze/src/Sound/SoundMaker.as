@@ -7,15 +7,15 @@ package Sound
 
 	public class SoundMaker
 	{
-		[Embed (source="../assets/sounds/AblazeFinalThemWHOLE.mp3")] private static var mainTheme:Class;
-		[Embed (source="../assets/sounds/AblazeLOOP1.mp3")] private static var mainTheme1Loop:Class;
-		[Embed (source="../assets/sounds/ablaze_forest_theme_sample.mp3")] private static var forestTheme:Class;
-		[Embed (source="../assets/sounds/evil_bgm_0.mp3")] private static var evil:Class;
-		[Embed (source="../assets/sounds/fire-moving-crackle.mp3")] private static var movingFire:Class;
-		[Embed (source="../assets/sounds/fire-whoosh2.mp3")] private static var fireWhooshSound:Class;
-		[Embed (source="../assets/sounds/jump1.mp3")] private static var jump1Sound:Class;
-		[Embed (source="../assets/sounds/jump2.mp3")] private static var jump2Sound:Class;
-		[Embed (source="../assets/sounds/jump3.mp3")] private static var jump3Sound:Class;
+		[Embed (source="../../assets/sounds/AblazeFinalThemWHOLE.mp3")] private static var mainTheme:Class;
+		[Embed (source="../../assets/sounds/AblazeLOOP1.mp3")] private static var mainTheme1Loop:Class;
+		[Embed (source="../../assets/sounds/ablaze_forest_theme_sample.mp3")] private static var forestTheme:Class;
+		[Embed (source="../../assets/sounds/evil_bgm_0.mp3")] private static var evil:Class;
+		[Embed (source="../../assets/sounds/fire-moving-crackle.mp3")] private static var movingFire:Class;
+		[Embed (source="../../assets/sounds/fire-whoosh2.mp3")] private static var fireWhooshSound:Class;
+		[Embed (source="../../assets/sounds/jump1.mp3")] private static var jump1Sound:Class;
+		[Embed (source="../../assets/sounds/jump2.mp3")] private static var jump2Sound:Class;
+		[Embed (source="../../assets/sounds/jump3.mp3")] private static var jump3Sound:Class;
 		
 		public static var MainTheme : FlxSound = new FlxSound();
 		MainTheme.loadEmbedded(mainTheme,true);

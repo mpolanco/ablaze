@@ -16,7 +16,7 @@ package
 	
 	public class MenuState extends FlxState
 	{
-		[Embed(source="assets/font/Taibaijan.ttf", fontFamily="Ablaze", embedAsCFF="false")] 	public	var	AblazeFont:String;
+		[Embed(source="../assets/font/Taibaijan.ttf", fontFamily="Ablaze", embedAsCFF="false")] 	public	var	AblazeFont:String;
 		public var buttonOffset:FlxPoint = new FlxPoint(10,10);
 		public var menuText:FlxText;
 		public var playButton:FlxButton;

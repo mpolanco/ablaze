@@ -17,7 +17,7 @@ package Levels.Forest
 	
 	public class Forest3 extends PlayState
 	{
-		[Embed (source="../assets/sounds/Thunder Clap-SoundBible.com-1913038465.mp3")] private static var thunder:Class;
+		[Embed (source="../../../assets/sounds/Thunder Clap-SoundBible.com-1913038465.mp3")] private static var thunder:Class;
 		
 		public static const spawnLeft:FlxPoint = new FlxPoint(5, 200);
 		public static const spawnRight:FlxPoint = new FlxPoint(620, 200);

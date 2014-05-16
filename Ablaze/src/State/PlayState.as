@@ -29,7 +29,7 @@ package State
 
 	public class PlayState extends FlxState
 	{
-		[Embed (source="../assets/sounds/rain.mp3")] private static var rain:Class;
+		[Embed (source="../../assets/sounds/rain.mp3")] private static var rain:Class;
 		
 		public var level:BaseLevel;
 		protected var levelClass:Class;

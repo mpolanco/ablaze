@@ -13,8 +13,8 @@ package Text
 	
 	public class AblazeText extends FlxText implements Fadeable
 	{
-		[Embed(source="assets/font/CFAloneontheEarthDEMO-Regul.ttf", fontFamily="Alone", embedAsCFF="false")] 	public	var	FontAlone:String;
-		[Embed(source="assets/font/Taibaijan.ttf", fontFamily="Ablaze", embedAsCFF="false")] 	public	var	AblazeFont:String;
+		[Embed(source="../../assets/font/CFAloneontheEarthDEMO-Regul.ttf", fontFamily="Alone", embedAsCFF="false")] 	public	var	FontAlone:String;
+		[Embed(source="../../assets/font/Taibaijan.ttf", fontFamily="Ablaze", embedAsCFF="false")] 	public	var	AblazeFont:String;
 		public var bounds:AreaImpl;
 		public var playerInside:Boolean;
 		public var fadeRate:Number = 1.0/30.0;
