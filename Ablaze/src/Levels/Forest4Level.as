@@ -3,6 +3,7 @@
 package Levels
 {
 	import org.flixel.*;
+	import Objects.Hut;
 	public class Forest4Level extends BaseLevel
 	{
 		//Embedded media...
