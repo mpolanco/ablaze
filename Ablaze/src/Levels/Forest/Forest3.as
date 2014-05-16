@@ -35,7 +35,7 @@ package Levels.Forest
 		
 		public function addTextObjects():void {
 			var text1:AblazeText = new AblazeText(130,200,50,
-				new RectangleArea(90, 250, 80, 50, false), "Home");
+				new RectangleArea(90, 250, 60, 50, false), "Home");
 			var text2:AblazeText = new AblazeText(200,180,100,
 				new RectangleArea(200, 240, 80, 60, false), "Go Home");
 			var text3:AblazeText = new AblazeText(300,220,300,
@@ -73,6 +73,8 @@ package Levels.Forest
 				SoundMaker.EvilBackground.play();
 				SoundMaker.EvilBackground.volume = .2;
 				PlayState.Raining = true;
+				SoundMaker.ForestTheme.stop();
+				SoundMaker.MainTheme1Loop.play();
 			}
 			
 		}
