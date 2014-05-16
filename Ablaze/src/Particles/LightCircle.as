@@ -10,7 +10,7 @@ package Particles
 	
 	public class LightCircle extends FlxSprite
 	{
-		[Embed(source="../assets/art/RadialDot.png")]
+		[Embed(source="../../assets/art/RadialDot.png")]
 		private var LightImageClass:Class;
 		
 		private var darkness:FlxSprite;
