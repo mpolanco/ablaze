@@ -6,11 +6,13 @@ package Area
 	{
 		public var x:Number;
 		public var y:Number;
+		public var type:String;
 		
-		public function AreaImpl(X:Number, Y:Number)
+		public function AreaImpl(X:Number, Y:Number, Type:String = "")
 		{
 			this.x = X;
 			this.y = Y;
+			this.type = Type;
 		}
 		
 		public function isInsideArea(x:Number, y:Number):Boolean

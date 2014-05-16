@@ -7,9 +7,12 @@ package {
 	
 	import Particles.LightCircle;
 	
+	import Sound.SoundMaker;
+	
 	import State.PlayState;
 	
 	import flash.display.Graphics;
+	import flash.media.Sound;
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxGroup;
@@ -76,7 +79,7 @@ package {
 			FlxControl.create(this, FlxControlHandler.MOVEMENT_ACCELERATES, FlxControlHandler.STOPPING_DECELERATES, 1, true, false); // sets up player1 attr of FlxControl
 			FlxControl.player1.setCursorControl(false, false, true, true); // use only left & right arrow keys
 			//TODO: should be KEYMODE_JUST_DOWN, but thats unresponsive... fix it!
-			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 200, FlxObject.FLOOR);
+			FlxControl.player1.setJumpButton("SPACE", FlxControlHandler.KEYMODE_PRESSED, 200, FlxObject.FLOOR, 250,0, SoundMaker.playJump);
 			FlxControl.player1.setMovementSpeed(400, 0, 100, 200, 400, 0);
 			FlxControl.player1.setGravity(0, 400);
 			this.facing = FlxObject.RIGHT;

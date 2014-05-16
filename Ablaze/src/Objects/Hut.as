@@ -6,6 +6,8 @@ package Objects
 	import ParticleEmitters.FireEmitter;
 	import ParticleEmitters.SmokeEmitter;
 	
+	import Sound.SoundMaker;
+	
 	import State.PlayState;
 	
 	import flash.events.Event;
@@ -61,6 +63,10 @@ package Objects
 		
 		public function burnUp(e:TimerEvent):void {
 			burnTimer = new Timer(40, 49);
+			var soundTimer:Timer = new Timer(40,20);
+			soundTimer.addEventListener(TimerEvent.TIMER_COMPLETE, SoundMaker.playWhoosh);
+			soundTimer.start();
+			
 			this.fireEmitter.active = true;
 			burnTimer.addEventListener(TimerEvent.TIMER, burnRateHelper);
 			burnTimer.addEventListener(TimerEvent.TIMER_COMPLETE, fadeOut);
@@ -86,6 +92,7 @@ package Objects
 		
 		private function killHelper(e:TimerEvent):void {
 			this.fireEmitter.frequency = 0;
+			SoundMaker.fireMove.volume = .4;
 			this.kill();
 		}
 		

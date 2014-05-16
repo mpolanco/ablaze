@@ -8,6 +8,8 @@ package State
 	
 	import ParticleEmitters.RainEmitter;
 	
+	import Sound.SoundMaker;
+	
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
 	import flash.sampler.startSampling;
@@ -25,7 +27,7 @@ package State
 
 	public class PlayState extends FlxState
 	{
-		[Embed (source="../assets/sounds/Rain_Background-Mike_Koenig-1681389445.mp3")] private static var rain:Class;
+		[Embed (source="../assets/sounds/rain.mp3")] private static var rain:Class;
 		
 		public var level:BaseLevel;
 		protected var levelClass:Class;
@@ -40,6 +42,7 @@ package State
 		public var darkness:FlxSprite;
 		protected var fx:Sprite;
 		protected var rainLayer:FXLayer;
+		protected static var _inHut:Boolean;
 		
 		public function PlayState(levelClass:Class, spawn:FlxPoint=null)
 		{
@@ -52,6 +55,7 @@ package State
 			add(this.darkness);
 			Mouse.hide();
 			FlxG.mouse.hide();
+			SoundMaker.fireMove.play(false);
 		}
 		
 		override public function create():void	
@@ -91,7 +95,7 @@ package State
 			FlxG.stage.addChild(fx);	//We have to add it or Flash won't render it at all
 			fx.addChild( _flintFXrenderer );	
 			this.setDarkness(.5);
-			FlxG.play(rain,1,true,true);
+			FlxG.play(rain,.8,true,true);
 			
 			rainLayer = new FXLayer(fx);
 			this.level.masterLayer.add(rainLayer);
@@ -152,6 +156,12 @@ package State
 				PlayState.state.stopRain();
 			}
 			protected::_Raining = value;
+		}
+		public static function get inHut():Boolean {
+			return protected ::_inHut;
+		}
+		public static function set inHut(value:Boolean):void {
+			protected::_inHut = value;
 		}
 		
 		/*

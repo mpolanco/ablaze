@@ -69,7 +69,7 @@ package
 			FlxG.mouse.show();
 		}
 		public function playButtonCallback():void {
-			FlxG.switchState(new Forest3(null));
+			FlxG.switchState(new Forest1(null));
 		}
 		
 		public function testButtonCallback():void {

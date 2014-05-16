@@ -5,9 +5,9 @@ package Area
 	
 	public class UpperHalfCircleArea extends CircleArea
 	{
-		public function UpperHalfCircleArea(X:Number, Y:Number, Radius:Number)
+		public function UpperHalfCircleArea(X:Number, Y:Number, Radius:Number, Type:String = null)
 		{
-			super(X, Y, Radius);
+			super(X, Y, Radius, Type);
 		}
 		
 		override public function isInsideArea(x:Number, y:Number):Boolean {

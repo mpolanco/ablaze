@@ -6,9 +6,9 @@ package Area
 	public class CircleArea extends AreaImpl
 	{
 		public var radius:Number;
-		public function CircleArea(X:Number, Y:Number, Radius:Number)
+		public function CircleArea(X:Number, Y:Number, Radius:Number, Type:String = null)
 		{
-			super(X, Y);
+			super(X, Y, Type);
 			this.radius = Radius;
 		}
 		
