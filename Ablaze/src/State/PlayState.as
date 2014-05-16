@@ -6,6 +6,8 @@ package State
 	
 	import Objects.Hut;
 	
+	import Text.AblazeText;
+	
 	import ParticleEmitters.RainEmitter;
 	
 	import Sound.SoundMaker;
@@ -177,6 +179,12 @@ package State
 			darkness.blend = "multiply";
 			
 			add(darkness);
+		}
+		
+		public function killText():void {
+			for (var i:Number=0; i < text.length; i++) {
+				this.level.masterLayer.remove((text[i] as AblazeText));
+			}
 		}
 		
 		override public function draw():void {

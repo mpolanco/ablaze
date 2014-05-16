@@ -1,10 +1,14 @@
 package Levels.Forest
 {
+	import Area.RectangleArea;
+	
 	import Levels.Forest3Level;
 	
 	import Sound.SoundMaker;
 	
 	import State.PlayState;
+	
+	import Text.AblazeText;
 	
 	import org.flixel.FlxG;
 	import org.flixel.FlxPoint;
@@ -21,13 +25,36 @@ package Levels.Forest
 		public function Forest3(spawn:FlxPoint)
 		{
 			super(Forest3Level, spawn);
+			text = new Array;
+		}
+		
+		override public function create():void {
+			super.create();
+			addTextObjects();
+		}
+		
+		public function addTextObjects():void {
+			var text1:AblazeText = new AblazeText(130,200,50,
+				new RectangleArea(90, 250, 80, 50, false), "Home");
+			var text2:AblazeText = new AblazeText(200,180,100,
+				new RectangleArea(200, 240, 80, 60, false), "Go Home");
+			var text3:AblazeText = new AblazeText(300,220,300,
+				new RectangleArea(315, 250, 300, 200, false), "Don't belong...");
+			
+			text.push(text1,text2,text3);
+			
+			this.level.masterLayer.add(text1);
+			this.level.masterLayer.add(text2);
+			this.level.masterLayer.add(text3);
 		}
 		
 		override public function update():void {
 			super.update();
 			if (this.playerAtLeftEdge()) {
+				killText();
 				this.fadeTransition(new Forest2(Forest2.spawnRight));
 			}else if (this.playerAtRightEdge()) {
+				killText();
 				this.fadeTransition(new Forest4(Forest4.spawnLeft));
 			}
 			

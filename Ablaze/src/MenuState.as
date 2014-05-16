@@ -73,7 +73,7 @@ package
 			FlxG.mouse.show();
 		}
 		public function playButtonCallback():void {
-			FlxG.switchState(new Forest2(null));
+			FlxG.switchState(new Forest3(null));
 			SoundMaker.MainTheme.stop();
 			SoundMaker.MainTheme1Loop.play();
 		}
